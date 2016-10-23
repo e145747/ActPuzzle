@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class NewBehaviourScript : MonoBehaviour
+public class PlayerAnimation : MonoBehaviour
 {
 	private Animator anime;
 
@@ -16,7 +16,7 @@ public class NewBehaviourScript : MonoBehaviour
 
 	void OnCollisionEnter2D (Collision2D collision)
 	{
-		if (collision.gameObject.tag == "Block")
+		if (collision.gameObject.tag != "Stage")
 		{
 			if (FlagManager.Instance.flags [1] == true)
 			{

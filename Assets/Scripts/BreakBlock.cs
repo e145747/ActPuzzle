@@ -3,7 +3,7 @@ using System.Collections;
 
 public class BreakBlock : MonoBehaviour
 {
-	
+
 	void Start ()
 	{
 	}
@@ -21,6 +21,17 @@ public class BreakBlock : MonoBehaviour
 				gameobject.SetActive (false);
 
 				Debug.Log ("broken block");
+			}
+				
+			if (collider.gameObject.tag == "Grabity")
+			{
+				FlagManager.Instance.flags [2] = true;			
+				FlagManager.Instance.flags [3] = true;
+
+				GameObject gameobject = collider.transform.gameObject;
+				gameobject.SetActive (false);
+
+				Debug.Log ("gravity");
 			}
 		}
 	}
