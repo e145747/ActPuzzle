@@ -4,24 +4,26 @@ using System.Collections;
 
 public class PlayerAction : MonoBehaviour
 {
+	Rigidbody2D act;
+
 	public float xx    = 1;
-	public float yy    = 1;
 	public float speed = 1;
 
 	void Start ()
 	{
+		act = GetComponent<Rigidbody2D>();
 	}
 
 	void Update ()
 	{
 		if (FlagManager.Instance.flags [2] == true)
 		{
+			act.velocity = new Vector2 (0, act.velocity.y).normalized * 3;
 		}
 
 		else if (FlagManager.Instance.flags [2] == false)
 		{
-			Vector2 direction = new Vector2 (xx, 0).normalized;
-			GetComponent<Rigidbody2D> ().velocity = direction * speed;
+			act.velocity = new Vector2 (xx, act.velocity.y).normalized;
 		}
 	}
 
@@ -29,13 +31,22 @@ public class PlayerAction : MonoBehaviour
 	{
 		if (collision.gameObject.tag == "Stage")
 		{
-			FlagManager.Instance.flags [2] = false;
+			FlagManager.Instance.flags [2] = false;		
 		}
 
-		if (collision.gameObject.tag == "Block" || collision.gameObject.tag == "Grabity")
+		else
 		{
-			xx = xx * -1;
-			Debug.Log ("attached");
+			if (FlagManager.Instance.flags [2] == true)
+			{
+				FlagManager.Instance.flags [2] = false;
+			}
+
+			else
+			{
+				xx = xx * -1;
+			}
 		}
+
+		Debug.Log ("attached");
 	}
 }
