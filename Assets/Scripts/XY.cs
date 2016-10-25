@@ -15,8 +15,7 @@ public class XY : MonoBehaviour
 	{
 		player = GameObject.Find("Player");
 	}
-	
-	// Update is called once per frame
+
 	void Update ()
 	{
 		Vector2 xy = UnityEngine.Camera.main.ScreenToWorldPoint (player.transform.position);
@@ -29,11 +28,7 @@ public class XY : MonoBehaviour
 			}
 		}
 
-		float ansy = xy.y - y;
-
 		x = xy.x;
 		y = xy.y;
-
-		Debug.Log (ansy);
 	}
 }

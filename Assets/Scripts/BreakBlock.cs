@@ -33,6 +33,10 @@ public class BreakBlock : MonoBehaviour
 
 				Debug.Log ("gravity");
 			}
+
+			else
+			{
+			}
 		}
 	}
 

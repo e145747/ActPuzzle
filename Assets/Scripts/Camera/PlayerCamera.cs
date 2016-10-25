@@ -1,17 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Camera : MonoBehaviour {
-
+public class PlayerCamera : MonoBehaviour
+{
 	public GameObject Player;
 
-	void Start () {
+	void Start ()
+	{
 		Player = GameObject.Find("Player"); 
-
 	}
-
-    //カメラの初期位置の指定
-	void Update(){
+		
+	void Update()
+	{
 		transform.position = new Vector3 (Player.transform.position.x, Player.transform.position.y, -10);
 	}
 }
