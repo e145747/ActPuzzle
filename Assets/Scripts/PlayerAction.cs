@@ -31,14 +31,14 @@ public class PlayerAction : MonoBehaviour
 	{
 		if (collision.gameObject.tag == "Stage")
 		{
-			FlagManager.Instance.flags [2] = false;		
+			Invoke ("Wait",0.03f);
 		}
 
 		else
 		{
 			if (FlagManager.Instance.flags [2] == true)
 			{
-				FlagManager.Instance.flags [2] = false;
+				Invoke ("Wait",0.03f);
 			}
 
 			else
@@ -48,5 +48,10 @@ public class PlayerAction : MonoBehaviour
 		}
 
 		Debug.Log ("attached");
+	}
+
+	void Wait ()
+	{
+		FlagManager.Instance.flags [2] = false;
 	}
 }
