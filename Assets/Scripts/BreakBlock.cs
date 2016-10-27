@@ -15,7 +15,7 @@ public class BreakBlock : MonoBehaviour
 			Vector2 tapPoint = UnityEngine.Camera.main.ScreenToWorldPoint (Input.mousePosition);
 			Collider2D collider = Physics2D.OverlapPoint (tapPoint);
 
-			if (collider.gameObject.tag == "Block")
+			if (collider.gameObject.tag == "Normal")
 			{
 				GameObject gameobject = collider.transform.gameObject;
 				gameobject.SetActive (false);

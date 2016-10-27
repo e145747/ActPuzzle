@@ -28,25 +28,20 @@ public class PlayerAction : MonoBehaviour
 
 	void OnCollisionEnter2D (Collision2D collision)
 	{
-		if (collision.gameObject.tag == "Stage")
-		{
-			Invoke ("Wait",0.03f);
-		}
+		Invoke ("Wait",0.03f);
 
-		else
-		{
-			if (FlagManager.Instance.flags [2] == true)
-			{
-				Invoke ("Wait",0.03f);
-			}
+		Debug.Log ("attached");
+	}
 
-			else
+	void OnTriggerEnter2D (Collider2D collider)
+	{
+		if (collider.gameObject.tag == "Wall")
+		{
+			if (FlagManager.Instance.flags [2] == false)
 			{
 				xx = xx * -1;
 			}
 		}
-
-		Debug.Log ("attached");
 	}
 
 	void Wait ()
