@@ -8,6 +8,8 @@ TagManager:
   - Stage
   - Grabity
   - Wall
+  - Block
+  - Direction
   layers:
   - Default
   - TransparentFX

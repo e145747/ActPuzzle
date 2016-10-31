@@ -24,6 +24,12 @@ public class PlayerAction : MonoBehaviour
 		{
 			act.velocity = new Vector2 (xx, act.velocity.y).normalized;
 		}
+
+		if (FlagManager.Instance.flags [4] == true)
+		{
+			xx = xx * -1;
+			FlagManager.Instance.flags [4] = false;
+		}
 	}
 
 	void OnCollisionEnter2D (Collision2D collision)

@@ -3,7 +3,6 @@ using System.Collections;
 
 public class BreakBlock : MonoBehaviour
 {
-
 	void Start ()
 	{
 	}
@@ -15,29 +14,39 @@ public class BreakBlock : MonoBehaviour
 			Vector2 tapPoint = UnityEngine.Camera.main.ScreenToWorldPoint (Input.mousePosition);
 			Collider2D collider = Physics2D.OverlapPoint (tapPoint);
 
-			if (collider.gameObject.tag == "Normal")
-			{
-				GameObject gameobject = collider.transform.gameObject;
-				gameobject.SetActive (false);
-
-				Debug.Log ("broken block");
-			}
+			if (FlagManager.Instance.flags [2] == false)
+            {
+                if (collider.gameObject.tag == "Normal")
+                {
+                    GameObject gameobject = collider.transform.gameObject;
+					gameobject.SetActive (false);
+				}
 				
-			if (collider.gameObject.tag == "Grabity")
-			{
-				FlagManager.Instance.flags [2] = true;			
-				FlagManager.Instance.flags [3] = true;
+				if (collider.gameObject.tag == "Grabity")
+                {
+					FlagManager.Instance.flags [2] = true;			
+					FlagManager.Instance.flags [3] = true;
 
-				GameObject gameobject = collider.transform.gameObject;
-				gameobject.SetActive (false);
+					GameObject gameobject = collider.transform.gameObject;
+					gameobject.SetActive (false);
 
-				Debug.Log ("gravity");
-			}
+					Debug.Log ("gravity");
+				}
 
-			else
-			{
+				if (collider.gameObject.tag == "Direction")
+				{
+					FlagManager.Instance.flags [4] = true;
+
+					GameObject gameobject = collider.transform.gameObject;
+					gameobject.SetActive (false);
+
+					Debug.Log ("Direction");
+				}
+
+                else
+                {
+				}
 			}
 		}
 	}
-
 }

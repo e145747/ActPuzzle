@@ -14,4 +14,4 @@ FlagManagerの各フラグ割り当て
  - 01 Playerの進行方向の判定
  - 02 PlayerのX方向への移動の制限
  - 03 Block(Gravity)が破壊されたかどうかの判定
-
+ - 04 Block(Direction)が破壊されたかどうかの判定
