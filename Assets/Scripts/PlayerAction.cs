@@ -5,8 +5,8 @@ public class PlayerAction : MonoBehaviour
 {
 	Rigidbody2D act;
 
-	public float xx    = 1;
-	public float speed = 1;
+	private int xx    = 1;
+	public  int speed = 1;
 
 	void Start ()
 	{

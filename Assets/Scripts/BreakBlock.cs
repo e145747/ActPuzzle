@@ -3,8 +3,11 @@ using System.Collections;
 
 public class BreakBlock : MonoBehaviour
 {
+	GameObject breakcount;
+
 	void Start ()
 	{
+		breakcount = GameObject.Find("MainCamera");
 	}
 
 	void Update ()
@@ -20,6 +23,7 @@ public class BreakBlock : MonoBehaviour
                 {
                     GameObject gameobject = collider.transform.gameObject;
 					gameobject.SetActive (false);
+					Counter ();
 				}
 				
 				if (collider.gameObject.tag == "Grabity")
@@ -29,6 +33,7 @@ public class BreakBlock : MonoBehaviour
 
 					GameObject gameobject = collider.transform.gameObject;
 					gameobject.SetActive (false);
+					Counter ();
 
 					Debug.Log ("gravity");
 				}
@@ -39,6 +44,7 @@ public class BreakBlock : MonoBehaviour
 
 					GameObject gameobject = collider.transform.gameObject;
 					gameobject.SetActive (false);
+					Counter ();
 
 					Debug.Log ("Direction");
 				}
@@ -48,5 +54,11 @@ public class BreakBlock : MonoBehaviour
 				}
 			}
 		}
+	}
+
+	void Counter ()
+	{
+		BreakCounter count = breakcount.GetComponent<BreakCounter>();
+		count.Count();
 	}
 }
