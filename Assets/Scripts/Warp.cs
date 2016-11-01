@@ -13,9 +13,11 @@ public class Warp : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (FlagManager.Instance.flags [4] == true) { // 6
+		/*
+		if (FlagManager.Instance.flags [6] == true) {
 			transform.position = new Vector2 (8.8f, 0.88f);
 		}
+		*/
 	}
 
 	void OnCollisionEnter2D (Collision2D coll)

@@ -30,6 +30,12 @@ public class PlayerAction : MonoBehaviour
 			xx = xx * -1;
 			FlagManager.Instance.flags [4] = false;
 		}
+
+		// warp
+		if (FlagManager.Instance.flags [6] == true)
+		{
+			transform.position = new Vector2 (8.8f, 0.88f);
+		}
 	}
 
 	void OnCollisionEnter2D (Collision2D collision)
