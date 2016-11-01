@@ -49,6 +49,18 @@ public class BreakBlock : MonoBehaviour
 					Debug.Log ("Direction");
 				}
 
+				if (collider.gameObject.tag == "Warp1") {
+				// Warp Block の 色が変更されてるなら
+					if (FlagManager.Instance.flags [5] == true) {
+					// Warp Blockが押されたか判断
+					FlagManager.Instance.flags [4] = true;
+GameObject gameObject = collider.transform.gameObject;
+gameObject.SetActive (false);
+
+Debug.Log ("warp");
+}
+}
+
                 else
                 {
 				}

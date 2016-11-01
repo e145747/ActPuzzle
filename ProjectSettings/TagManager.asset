@@ -10,6 +10,7 @@ TagManager:
   - Wall
   - Block
   - Direction
+  - Warp1
   layers:
   - Default
   - TransparentFX
