@@ -11,6 +11,7 @@ TagManager:
   - Block
   - Direction
   - Warp1
+  - SelectStage
   layers:
   - Default
   - TransparentFX

@@ -27,14 +27,18 @@ public class PlayerAction : MonoBehaviour
 
 		if (FlagManager.Instance.flags [4] == true)
 		{
-			xx = xx * -1;
-			FlagManager.Instance.flags [4] = false;
+			if (FlagManager.Instance.flags [2] == false)
+			{
+				xx = xx * -1;
+				FlagManager.Instance.flags [4] = false;
+			}
 		}
 
 		// warp
 		if (FlagManager.Instance.flags [6] == true)
 		{
 			transform.position = new Vector2 (8.8f, 0.88f);
+			FlagManager.Instance.flags [6] = false;
 		}
 	}
 
