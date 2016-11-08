@@ -5,8 +5,8 @@ public class PlayerAction : MonoBehaviour
 {
 	Rigidbody2D act;
 
-	private int xx    = 1;
-	public  int speed = 1;
+	private int  xx    = 1;
+	public  int  speed = 1;
 
 	void Start ()
 	{
@@ -58,10 +58,21 @@ public class PlayerAction : MonoBehaviour
 				xx = xx * -1;
 			}
 		}
+
+		if (collider.gameObject.tag == "StopTrigger")
+		{
+			FlagManager.Instance.flags [0] = true;
+			FlagManager.Instance.flags [2] = true;
+
+			// アニメーションの停止も追加すること
+		}
 	}
 
 	void Wait ()
 	{
-		FlagManager.Instance.flags [2] = false;
+		if (FlagManager.Instance.flags [0] == false)
+		{
+			FlagManager.Instance.flags [2] = false;
+		}
 	}
 }

@@ -12,6 +12,7 @@ TagManager:
   - Direction
   - Warp1
   - SelectStage
+  - StopTrigger
   layers:
   - Default
   - TransparentFX
