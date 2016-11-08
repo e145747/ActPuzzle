@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class Flick : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class Flick : MonoBehaviour
 	private Vector2 touchEndPos;
 
 	public  bool moving;
-	private int  a;
+	public int  a;
 	public  int  stage;
 
 	void Start ()
@@ -37,7 +38,21 @@ public class Flick : MonoBehaviour
 		{
 			if (a == 1)
 			{
-				// stage が表すステージにワープ
+				Vector2 tapPoint = UnityEngine.Camera.main.ScreenToWorldPoint (touchEndPos);
+				Collider2D collider = Physics2D.OverlapPoint (tapPoint);
+
+				if (collider.gameObject.tag == "SelectStage")
+				{
+					if (stage == 1)
+					{
+						SceneManager.LoadScene ("Stage1(Tutorial)");
+					}
+
+					if (stage == 2)
+					{
+						//SceneManager.LoadScene ("Stage1(Tutorial)");
+					}
+				}
 			}
 
 			else if (a == 2) //カメラ左
@@ -64,8 +79,8 @@ public class Flick : MonoBehaviour
 		if (Input.GetMouseButtonUp (0))
 		{
 			touchEndPos   = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
-			
-			GetDirection();
+
+			GetDirection ();
 		}
 	}
 

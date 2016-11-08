@@ -124,6 +124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moving: 0
+  a: 0
   stage: 0
 --- !u!114 &42812039
 MonoBehaviour:
@@ -1801,6 +1802,10 @@ Prefab:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1000010636081680, guid: d635ade8f8dbf4d47a6b2a8cf2a3910f, type: 2}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: d635ade8f8dbf4d47a6b2a8cf2a3910f, type: 2}
@@ -1891,6 +1896,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1781780912}
   - 212: {fileID: 1781780913}
+  - 61: {fileID: 1781780914}
   m_Layer: 0
   m_Name: Stage (1)
   m_TagString: SelectStage
@@ -1945,6 +1951,20 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!61 &1781780914
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1781780911}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 3.18, y: 3.18}
 --- !u!1 &1842521185
 GameObject:
   m_ObjectHideFlags: 0

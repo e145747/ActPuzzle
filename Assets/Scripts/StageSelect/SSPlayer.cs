@@ -35,6 +35,9 @@ public class SSPlayer : MonoBehaviour
 
 	void OnTriggerEnter2D (Collider2D collider)
 	{
-		speed = 0;
+		if (collider.gameObject.tag != "SelectStage")
+		{
+			speed = 0;
+		}
 	}
 }
