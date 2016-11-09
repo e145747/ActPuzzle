@@ -4,7 +4,6 @@ using System.Collections;
 public class Messeage : MonoBehaviour
 {
 	public int messeagenum;
-	public int aaaa = 0;
 
 	private int playingstage;
 
@@ -25,6 +24,8 @@ public class Messeage : MonoBehaviour
 
 			if (messeagenum == 1)
 			{
+				GameObject target = this.transform.Find ("Tutorial2").gameObject;
+				target.SetActive(true);
 			}
 		}
 	}

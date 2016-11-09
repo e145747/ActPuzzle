@@ -14,11 +14,11 @@ public class MesseageRead : MonoBehaviour
 	{
 		Messeage move = messeage.GetComponent<Messeage>();
 
-		//Messeage messeage = GetComponent<Messeage>();
-
 		Invoke ("Wait",0.3f);
 
+		FlagManager.Instance.flags [0] = false;
 		move.messeagenum = move.messeagenum + 1;
+
 		gameObject.SetActive(false);
 	}
 		
@@ -29,7 +29,6 @@ public class MesseageRead : MonoBehaviour
 
 	void Wait ()
 	{
-		FlagManager.Instance.flags [0] = false;
 		FlagManager.Instance.flags [2] = false;
 	}
 
