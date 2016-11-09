@@ -22,7 +22,7 @@ public class PlayerAction : MonoBehaviour
 
 		else if (FlagManager.Instance.flags [2] == false)
 		{
-			act.velocity = new Vector2 (xx, act.velocity.y).normalized;
+			act.velocity = new Vector2 (xx, act.velocity.y).normalized * 0.8f;
 		}
 
 		if (FlagManager.Instance.flags [4] == true)

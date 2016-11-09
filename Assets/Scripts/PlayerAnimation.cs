@@ -14,9 +14,9 @@ public class PlayerAnimation : MonoBehaviour
 	{
 	}
 
-	void OnCollisionEnter2D (Collision2D collision)
+	void OnTriggerEnter2D (Collider2D collider)
 	{
-		if (collision.gameObject.tag != "Stage")
+		if (collider.gameObject.tag == "Wall")
 		{
 			if (FlagManager.Instance.flags [1] == true)
 			{
