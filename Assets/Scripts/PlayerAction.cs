@@ -5,8 +5,7 @@ public class PlayerAction : MonoBehaviour
 {
 	Rigidbody2D act;
 
-	private int  xx    = 1;
-	public  int  speed = 1;
+	private int xx = 1;
 
 	void Start ()
 	{
@@ -17,7 +16,15 @@ public class PlayerAction : MonoBehaviour
 	{
 		if (FlagManager.Instance.flags [2] == true)
 		{
-			act.velocity = new Vector2 (0, act.velocity.y).normalized * 3;
+			if (FlagManager.Instance.flags [0] == true)
+			{
+				act.velocity = new Vector2 (0, 0).normalized;
+			}
+
+			else
+			{
+				act.velocity = new Vector2 (0, act.velocity.y).normalized * 3;
+			}
 		}
 
 		else if (FlagManager.Instance.flags [2] == false)

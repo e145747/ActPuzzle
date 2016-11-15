@@ -27,6 +27,18 @@ public class Messeage : MonoBehaviour
 				GameObject target = this.transform.Find ("Tutorial2").gameObject;
 				target.SetActive(true);
 			}
+
+			if (messeagenum == 2)
+			{
+				GameObject target = this.transform.Find ("Tutorial3").gameObject;
+				target.SetActive(true);
+			}
+
+			if (messeagenum == 3)
+			{
+				GameObject target = this.transform.Find ("Tutorial4").gameObject;
+				target.SetActive(true);
+			}
 		}
 	}
 }
