@@ -22,21 +22,27 @@ public class Messeage : MonoBehaviour
 				target.SetActive(true);
 			}
 
-			if (messeagenum == 1)
+			else if (messeagenum == 1)
 			{
 				GameObject target = this.transform.Find ("Tutorial2").gameObject;
 				target.SetActive(true);
 			}
 
-			if (messeagenum == 2)
+			else if (messeagenum == 2)
 			{
 				GameObject target = this.transform.Find ("Tutorial3").gameObject;
 				target.SetActive(true);
 			}
 
-			if (messeagenum == 3)
+			else if (messeagenum == 3)
 			{
 				GameObject target = this.transform.Find ("Tutorial4").gameObject;
+				target.SetActive(true);
+			}
+
+			if (FlagManager.Instance.flags [10] == true)
+			{
+				GameObject target = this.transform.Find ("Clear").gameObject;
 				target.SetActive(true);
 			}
 		}

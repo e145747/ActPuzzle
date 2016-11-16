@@ -17,6 +17,7 @@ FlagManagerの各フラグ割り当て(仮)
  - 04 Block(Direction)が破壊されたかどうかの判定
  - 05 Block(Warp)とPlayerとの接触判定
  - 06 Block(Warp)が破壊されたかどうかの判定
+ - 10 Playerがゴールに到達したかどうかの判定
 
 ギミック等メモ
 　1 ー ギミック(ブロックの仕掛け)の考案

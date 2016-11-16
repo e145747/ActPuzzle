@@ -12,16 +12,23 @@ public class MesseageRead : MonoBehaviour
 
 	public void OnClick()
 	{
-		Messeage move = messeage.GetComponent<Messeage>();
+		if (FlagManager.Instance.flags [10] == false)
+		{
+			Messeage move = messeage.GetComponent<Messeage> ();
 
-		Invoke ("Wait",0.3f);
+			Invoke ("Wait", 0.3f);
 
-		FlagManager.Instance.flags [0] = false;
-		move.messeagenum = move.messeagenum + 1;
+			FlagManager.Instance.flags [0] = false;
+			move.messeagenum = move.messeagenum + 1;
 
-		gameObject.SetActive(false);
+			gameObject.SetActive (false);
+		}
+
+		else
+		{
+			//ゲーム終了の処理
+		}
 	}
-		
 
 	void Update ()
 	{
