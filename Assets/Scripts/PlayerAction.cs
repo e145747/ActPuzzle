@@ -52,8 +52,6 @@ public class PlayerAction : MonoBehaviour
 	void OnCollisionEnter2D (Collision2D collision)
 	{
 		Invoke ("Wait",0.03f);
-
-		Debug.Log ("attached");
 	}
 
 	void OnTriggerEnter2D (Collider2D collider)
@@ -73,6 +71,13 @@ public class PlayerAction : MonoBehaviour
 
 			// アニメーションの停止も追加すること
 		}
+	}
+
+	void OnTriggerStay2D (Collider2D collider)
+	{
+		// TopKiller and BottomKiller
+		// 両方に接触した(潰された)ときにゲームオーバーの判定を加える
+		// 未実装。なぜかできない。
 	}
 
 	void Wait ()

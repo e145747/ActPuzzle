@@ -10,17 +10,43 @@ public class Flick : MonoBehaviour
 	private Vector2 touchEndPos;
 
 	public  bool moving;
-	public int  a;
-	public  int  stage;
+	public  int  a;
+
+	int        clear;
+	public int playingstage;
+	public int maxstage;
+	public int score1;
 
 	void Start ()
 	{
-		moving = false;
+		//----- savedata -----
+		clear        = PlayerPrefs.GetInt("Clear",0);   // bool
+		playingstage = PlayerPrefs.GetInt("PlayingStage",0);
+		maxstage     = PlayerPrefs.GetInt("MaxStage",1);
+		score1       = PlayerPrefs.GetInt("Score1",0);   // if(1000<=score1) score=score1-1000
 
-		a     = 0;
-		stage = 0;
+		if (clear == 0)
+		{
+			playingstage = 0;
+			PlayerPrefs.SetInt ("PlayingStage", playingstage);
+		}
+		else
+		{
+			FlagManager.Instance.flags [11] = true;
+		}
+
+		PlayerPrefs.Save ();
+		//--------------------
+
+		moving = false;
+		a  = 0;
 
 		playermove = GameObject.Find("Player");
+
+		Debug.Log ("clear : " + clear);
+		Debug.Log ("playingstage : " + playingstage);
+		Debug.Log ("maxstage : " + maxstage);
+		Debug.Log ("score1 : " + score1);
 	}
 
 	void Update ()
@@ -43,14 +69,17 @@ public class Flick : MonoBehaviour
 
 				if (collider.gameObject.tag == "SelectStage")
 				{
-					if (stage == 1)
+					PlayerPrefs.SetInt("PlayingStage", playingstage);
+					PlayerPrefs.Save();
+
+					if (playingstage == 1)
 					{
 						SceneManager.LoadScene ("Stage1(Tutorial)");
 					}
 
-					if (stage == 2)
+					if (playingstage == 2)
 					{
-						//SceneManager.LoadScene ("Stage1(Tutorial)");
+						//SceneManager.LoadScene ("SampleStage");
 					}
 				}
 			}
@@ -93,22 +122,22 @@ public class Flick : MonoBehaviour
 		{
 			if (70 < directionX && moving == false)
 			{
-				if (0 < stage) // MINSTAGE
+				if (0 < playingstage) // MINSTAGE
 				{
 					moving = true;
 
-					stage = stage - 1;
+					playingstage = playingstage - 1;
 					a = 2;
 				}
 			}
 
 			else if (directionX < -70 && moving == false)
 			{
-				if (stage < 10) // MAXSTAGE
+				if (playingstage < maxstage)
 				{
 					moving = true;
 
-					stage = stage + 1;
+					playingstage = playingstage + 1;
 					a = 3;
 				}
 			}

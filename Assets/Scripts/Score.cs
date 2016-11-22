@@ -6,11 +6,13 @@ public class Score : MonoBehaviour
 	GameObject data;
 
 	public int scoredata;
-	int stage = 1; //あとで消す(セーブデータ参照)
+	int        playingstage;
 
 	void Start ()
 	{
 		data = GameObject.Find("MainCamera");
+
+		playingstage = PlayerPrefs.GetInt("PlayingStage",0);
 	}
 
 	void Update ()
@@ -20,7 +22,7 @@ public class Score : MonoBehaviour
 			BreakCounter block = data.GetComponent<BreakCounter>();
 			ItemCounter  item  = data.GetComponent<ItemCounter>();
 
-			if (stage == 1)
+			if (playingstage == 1)
 			{
 				// 最適解:4 ボーダー:14
 				int blockdata = 70 - (7 * (block.breakcount - 4));  // 70点分

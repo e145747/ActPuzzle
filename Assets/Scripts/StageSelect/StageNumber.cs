@@ -21,9 +21,9 @@ public class StageNumber : MonoBehaviour
 
 		else
 		{
-			if (stagenum.stage != 0) 
+			if (stagenum.playingstage != 0)
 			{
-				StageText.text = "STAGE : " + stagenum.stage.ToString ();
+				StageText.text = "STAGE : " + stagenum.playingstage.ToString ();
 			}
 
 			else
