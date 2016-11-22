@@ -14,8 +14,7 @@ TagManager:
   - SelectStage
   - StopTrigger
   - Messeage
-  - TopKiller
-  - BottomKiller
+  - Killer
   layers:
   - Default
   - TransparentFX
