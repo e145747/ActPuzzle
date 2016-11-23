@@ -33,7 +33,7 @@ public class SpriteChangeB2 : MonoBehaviour
 
 				else
 				{
-					this.GetComponent<Image> ().color = new Color (1.0f, 1.0f, 1.0f, 0.5f);
+					this.GetComponent<Image> ().color = new Color (1.0f, 1.0f, 1.0f, 0.4f);
 				}
 			}
 

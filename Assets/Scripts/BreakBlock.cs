@@ -20,10 +20,13 @@ public class BreakBlock : MonoBehaviour
 			if (FlagManager.Instance.flags [2] == false)
             {
                 if (collider.gameObject.tag == "Normal")
-                {
-                    GameObject gameobject = collider.transform.gameObject;
-					gameobject.SetActive (false);
-					Counter ();
+				{
+                   GameObject gameobject = collider.transform.gameObject;
+
+					Animator anime = gameobject.GetComponent<Animator> ();
+					anime.Play ("Break", 0, 0.0f);
+
+					StartCoroutine (Breakblock(gameobject));
 				}
 				
 				if (collider.gameObject.tag == "Grabity")
@@ -32,8 +35,11 @@ public class BreakBlock : MonoBehaviour
 					FlagManager.Instance.flags [3] = true;
 
 					GameObject gameobject = collider.transform.gameObject;
-					gameobject.SetActive (false);
-					Counter ();
+
+					Animator anime = gameobject.GetComponent<Animator> ();
+					anime.Play ("Break", 0, 0.0f);
+
+					StartCoroutine (Breakblock(gameobject));
 
 					Debug.Log ("gravity");
 				}
@@ -43,8 +49,11 @@ public class BreakBlock : MonoBehaviour
 					FlagManager.Instance.flags [4] = true;
 
 					GameObject gameobject = collider.transform.gameObject;
-					gameobject.SetActive (false);
-					Counter ();
+
+					Animator anime = gameobject.GetComponent<Animator> ();
+					anime.Play ("Break", 0, 0.0f);
+
+					StartCoroutine (Breakblock(gameobject));
 
 					Debug.Log ("Direction");
 				}
@@ -56,9 +65,12 @@ public class BreakBlock : MonoBehaviour
 					{
 						// Warp Blockが押されたか判断
 						FlagManager.Instance.flags [6] = true;
-						GameObject gameObject = collider.transform.gameObject;
-						gameObject.SetActive (false);
-						Debug.Log ("warp");
+						GameObject gameobject = collider.transform.gameObject;
+
+						Animator anime = gameobject.GetComponent<Animator> ();
+						anime.Play ("Break", 0, 0.0f);
+
+						StartCoroutine (Breakblock(gameobject));
 					}
 				}
 
@@ -69,9 +81,12 @@ public class BreakBlock : MonoBehaviour
 		}
 	}
 
-	void Counter ()
+	IEnumerator Breakblock (GameObject gameobject)
 	{
 		BreakCounter count = breakcount.GetComponent<BreakCounter>();
 		count.Count();
+
+		yield return new WaitForSeconds (0.1f);
+		gameobject.SetActive (false);
 	}
 }

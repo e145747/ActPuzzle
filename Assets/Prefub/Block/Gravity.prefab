@@ -38,6 +38,7 @@ GameObject:
   - 212: {fileID: 212000013772267030}
   - 50: {fileID: 50000013165087704}
   - 61: {fileID: 61000011962436930}
+  - 95: {fileID: 95000012484754266}
   m_Layer: 0
   m_Name: Gravity
   m_TagString: Grabity
@@ -162,6 +163,23 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 3.2, y: 0.1}
+--- !u!95 &95000012484754266
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011447956762}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5ca0e9e6e54e442e6af410721ebe7a6c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114000013766762744
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -16,12 +16,22 @@ public class Killer : MonoBehaviour
 
 		if (agravity.gravity < 0) 
 		{
-			this.transform.localPosition = new Vector2 (0, -1.65f);
+			Invoke ("Wait1",0.07f);
 		}
 
 		else if (0 < agravity.gravity)
 		{
-			this.transform.localPosition = new Vector2 (0, 1.65f);
+			Invoke ("Wait2",0.07f);
 		}
+	}
+
+	void Wait1 ()
+	{
+		this.transform.localPosition = new Vector2 (0, -1.65f);
+	}
+
+	void Wait2 ()
+	{
+		this.transform.localPosition = new Vector2 (0, 1.65f);
 	}
 }
