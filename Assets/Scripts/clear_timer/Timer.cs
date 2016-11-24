@@ -15,16 +15,15 @@ public class Timer : MonoBehaviour
 		
 	void Update ()
 	{
-		if (FlagManager.Instance.flags [0] == false && FlagManager.Instance.flags [13] == false)
+		if (FlagManager.Instance.flags [0] == false && FlagManager.Instance.flags [13] == false && FlagManager.Instance.flags [14] == false)
 		{
 			countTime += Time.deltaTime;
-			timeText.text = countTime.ToString("F2"); //小数2桁にして表示
 		}
 
 		if (FlagManager.Instance.flags [10] == true)
 		{
 			gameObject.GetComponent<Text> ().enabled = true;
-			timeText.text = countTime.ToString("F2");
+			timeText.text = countTime.ToString("F2");   //小数2桁にして表示
 		}
 	}
 }

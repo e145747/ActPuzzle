@@ -16,7 +16,7 @@ public class PlayerAction : MonoBehaviour
 	{
 		if (FlagManager.Instance.flags [2] == true)
 		{
-			if (FlagManager.Instance.flags [0] == true)
+			if (FlagManager.Instance.flags [0] == true || FlagManager.Instance.flags [14] == true)
 			{
 				act.velocity = new Vector2 (0, 0).normalized;
 			}
@@ -82,7 +82,7 @@ public class PlayerAction : MonoBehaviour
 
 	void Wait ()
 	{
-		if (FlagManager.Instance.flags [0] == false)
+		if (FlagManager.Instance.flags [0] == false && FlagManager.Instance.flags [14] == false)
 		{
 			FlagManager.Instance.flags [2] = false;
 		}

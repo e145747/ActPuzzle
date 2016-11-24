@@ -2,6 +2,8 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 
+//要編集
+
 public class MesseageRead : MonoBehaviour
 {
 	GameObject messeage;
@@ -94,6 +96,46 @@ public class MesseageRead : MonoBehaviour
 			PlayerPrefs.Save ();
 
 			SceneManager.LoadScene ("StageSelect");
+		}
+	}
+
+	public void OnClickRetry()
+	{
+		playingstage = PlayerPrefs.GetInt("PlayingStage",0);
+
+		if (playingstage == 1)
+		{
+			SceneManager.LoadScene ("Stage1(Tutorial)");
+		}
+
+		else if (playingstage == 2)
+		{
+		}
+	}
+
+	public void OnClickRetire()
+	{
+		clear = 1;
+		PlayerPrefs.SetInt ("Clear", clear);
+
+		SceneManager.LoadScene ("StageSelect");
+	}
+
+	public void OnClickMenu()
+	{
+		if (FlagManager.Instance.flags [0] == false && FlagManager.Instance.flags [10] == false && FlagManager.Instance.flags [13] == false)
+		{
+			if (FlagManager.Instance.flags [14] == false)
+			{
+				FlagManager.Instance.flags [2] = true;
+				FlagManager.Instance.flags [14] = true;
+			}
+
+			else if (FlagManager.Instance.flags [14] == true)
+			{
+				FlagManager.Instance.flags [2] = false;
+				FlagManager.Instance.flags [14] = false;
+			}
 		}
 	}
 
