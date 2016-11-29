@@ -4,6 +4,7 @@ using System.Collections;
 public class ItemTrigger : MonoBehaviour
 {
 	GameObject itemcount;
+	public AudioClip ItemSe;
 
 	void Start ()
 	{
@@ -12,6 +13,11 @@ public class ItemTrigger : MonoBehaviour
 
 	void Update ()
 	{
+		if (FlagManager.Instance.flags [15] == true)
+		{
+			GetComponent<AudioSource> ().PlayOneShot (ItemSe);
+			FlagManager.Instance.flags [15] = false;
+		}
 	}
 
 	void OnTriggerEnter2D (Collider2D collider)
@@ -20,6 +26,8 @@ public class ItemTrigger : MonoBehaviour
 		{
 			ItemCounter count = itemcount.GetComponent<ItemCounter>();
 			count.Count();
+
+			FlagManager.Instance.flags [15] = true;
 
 			gameObject.SetActive (false);
 		}

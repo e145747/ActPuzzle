@@ -3,6 +3,9 @@ using System.Collections;
 
 public class BreakBlock : MonoBehaviour
 {
+	public AudioClip BreakSE;
+	public AudioClip GravitySE;
+
 	GameObject breakcount;
 
 	void Start ()
@@ -26,6 +29,8 @@ public class BreakBlock : MonoBehaviour
 					Animator anime = gameobject.GetComponent<Animator> ();
 					anime.Play ("Break", 0, 0.0f);
 
+					GetComponent<AudioSource> ().PlayOneShot (BreakSE);
+
 					StartCoroutine (Breakblock(gameobject));
 				}
 				
@@ -38,6 +43,8 @@ public class BreakBlock : MonoBehaviour
 
 					Animator anime = gameobject.GetComponent<Animator> ();
 					anime.Play ("Break", 0, 0.0f);
+
+					GetComponent<AudioSource> ().PlayOneShot (GravitySE);
 
 					StartCoroutine (Breakblock(gameobject));
 

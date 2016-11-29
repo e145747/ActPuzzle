@@ -4,12 +4,16 @@ using System.Collections;
 public class PlayerAction : MonoBehaviour
 {
 	Rigidbody2D act;
+	GameObject gravitypm;
+	AntiGravity gg;
 
 	private int xx = 1;
 
 	void Start ()
 	{
 		act = GetComponent<Rigidbody2D>();
+		gravitypm = GameObject.Find("MainCamera");
+		gg = gravitypm.GetComponent<AntiGravity>();
 	}
 
 	void Update ()
@@ -23,13 +27,13 @@ public class PlayerAction : MonoBehaviour
 
 			else
 			{
-				act.velocity = new Vector2 (0, act.velocity.y).normalized * 3;
+				act.velocity = new Vector2 (0, gg.gravity/100).normalized * 3;
 			}
 		}
 
 		else if (FlagManager.Instance.flags [2] == false)
 		{
-			act.velocity = new Vector2 (xx, act.velocity.y).normalized * 0.8f;
+			act.velocity = new Vector2 (xx, gg.gravity/100).normalized * 0.8f;
 		}
 
 		if (FlagManager.Instance.flags [4] == true)

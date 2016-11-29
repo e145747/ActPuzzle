@@ -2,6 +2,7 @@ Library
 Temp
 Build
 Obj
+/Assets/Audio
 *.pidb
 *.unityproj
 *.sln

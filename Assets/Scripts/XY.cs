@@ -8,8 +8,8 @@ public class XY : MonoBehaviour
 	public float x = 0f;
 	public float y = 0f;
 
-	public float xborder = 0.00017f;
-	public float yborder = 0.00017f;
+	public float xborder = 0.0005f;
+	public float yborder = 0.000165f;
 
 	void Start ()
 	{
