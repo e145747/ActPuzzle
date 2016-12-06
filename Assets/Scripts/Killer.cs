@@ -16,12 +16,12 @@ public class Killer : MonoBehaviour
 
 		if (agravity.gravity < 0) 
 		{
-			Invoke ("Wait1",0.07f);
+			Invoke ("Wait1",0.1f);
 		}
 
 		else if (0 < agravity.gravity)
 		{
-			Invoke ("Wait2",0.07f);
+			Invoke ("Wait2",0.1f);
 		}
 	}
 

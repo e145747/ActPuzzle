@@ -16,25 +16,25 @@ public class Messeage : MonoBehaviour
 	{
 		if (FlagManager.Instance.flags [0] == true)
 		{
-			if (messeagenum == 0)
+			if (FlagManager.Instance.flags [10] == false && messeagenum == 0)
 			{
 				GameObject target = this.transform.Find ("Tutorial1").gameObject;
 				target.SetActive(true);
 			}
 
-			else if (messeagenum == 1)
+			else if (FlagManager.Instance.flags [10] == false && messeagenum == 1)
 			{
 				GameObject target = this.transform.Find ("Tutorial2").gameObject;
 				target.SetActive(true);
 			}
 
-			else if (messeagenum == 2)
+			else if (FlagManager.Instance.flags [10] == false && messeagenum == 2)
 			{
 				GameObject target = this.transform.Find ("Tutorial3").gameObject;
 				target.SetActive(true);
 			}
 
-			else if (messeagenum == 3)
+			else if (FlagManager.Instance.flags [10] == false && messeagenum == 3)
 			{
 				GameObject target = this.transform.Find ("Tutorial4").gameObject;
 				target.SetActive(true);

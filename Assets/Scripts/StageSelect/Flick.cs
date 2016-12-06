@@ -16,6 +16,7 @@ public class Flick : MonoBehaviour
 	public int playingstage;
 	public int maxstage;
 	public int score1;
+	public int score2;
 
 	void Start ()
 	{
@@ -24,6 +25,7 @@ public class Flick : MonoBehaviour
 		playingstage = PlayerPrefs.GetInt("PlayingStage",0);
 		maxstage     = PlayerPrefs.GetInt("MaxStage",1);
 		score1       = PlayerPrefs.GetInt("Score1",0);   // if(1000<=score1) score=score1-1000
+		score2       = PlayerPrefs.GetInt("Score2",0);
 
 		if (clear == 0)
 		{
@@ -79,7 +81,7 @@ public class Flick : MonoBehaviour
 
 					if (playingstage == 2)
 					{
-						//SceneManager.LoadScene ("SampleStage");
+						SceneManager.LoadScene ("Stage2(Gravity)");
 					}
 				}
 			}

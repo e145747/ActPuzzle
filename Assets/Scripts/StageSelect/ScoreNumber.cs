@@ -22,8 +22,8 @@ public class ScoreNumber : MonoBehaviour
 		Flick stagenum = GetComponent<Flick>();
 		
 		score1pt  = stagenum.score1;
-		score2pt  = stagenum.score1;  // あとで編集
-		score3pt  = stagenum.score1;
+		score2pt  = stagenum.score2;
+		score3pt  = stagenum.score1;  // あとで編集
 		score4pt  = stagenum.score1;
 		score5pt  = stagenum.score1;
 		score6pt  = stagenum.score1;
@@ -56,6 +56,12 @@ public class ScoreNumber : MonoBehaviour
 
 			else if (stagenum.playingstage == 2)
 			{
+				if (1000 < score2pt)
+				{
+					score2pt = score2pt - 1000;
+				}
+
+				ScoreText.text = "SCORE : " + score2pt.ToString ();
 			}
 
 			else

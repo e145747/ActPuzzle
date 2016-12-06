@@ -39,6 +39,15 @@ public class SpriteChangeB1 : MonoBehaviour
 
 			else if (flickdata.playingstage == 2)
 			{
+				if (0 < flickdata.score2)
+				{
+					this.GetComponent<Image> ().color = new Color (1.0f, 1.0f, 1.0f, 1.0f);
+				}
+
+				else
+				{
+					this.GetComponent<Image> ().color = new Color (1.0f, 1.0f, 1.0f, 0.4f);
+				}
 			}
 		}
 	}

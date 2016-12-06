@@ -9,3 +9,5 @@ EditorBuildSettings:
     path: Assets/Scenes/StageSelect.unity
   - enabled: 1
     path: Assets/Scenes/Stage1(Tutorial).unity
+  - enabled: 1
+    path: Assets/Scenes/Stage2(Gravity).unity

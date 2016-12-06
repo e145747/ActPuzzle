@@ -5451,6 +5451,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 635c81b1602614f14ae0715f63485bc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ItemSe: {fileID: 0}
 --- !u!212 &446706705
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11580,6 +11581,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 635c81b1602614f14ae0715f63485bc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ItemSe: {fileID: 0}
 --- !u!212 &1015840721
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13930,8 +13932,8 @@ MonoBehaviour:
   player: {fileID: 0}
   x: 0
   y: 0
-  xborder: 0.0005
-  yborder: 0.000165
+  xborder: 0.0002
+  yborder: 0.000145
 --- !u!114 &1253459224
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13955,6 +13957,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72207f63cd238458497c97f37cd962e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BreakSE: {fileID: 0}
+  GravitySE: {fileID: 0}
 --- !u!114 &1253459226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26142,6 +26146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 635c81b1602614f14ae0715f63485bc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ItemSe: {fileID: 0}
 --- !u!60 &2035020075
 PolygonCollider2D:
   m_ObjectHideFlags: 0

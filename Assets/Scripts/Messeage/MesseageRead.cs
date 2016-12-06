@@ -1,8 +1,8 @@
-﻿using UnityEngine;
+﻿//要編集
+
+using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
-
-//要編集
 
 public class MesseageRead : MonoBehaviour
 {
@@ -15,6 +15,7 @@ public class MesseageRead : MonoBehaviour
 	int playingstage;
 	int maxstage;
 	int score1;
+	int score2;
 
 	void Start ()
 	{
@@ -45,6 +46,7 @@ public class MesseageRead : MonoBehaviour
 			playingstage = PlayerPrefs.GetInt("PlayingStage",0);
 			maxstage     = PlayerPrefs.GetInt("MaxStage",1);
 			score1       = PlayerPrefs.GetInt("Score1",0);
+			score2       = PlayerPrefs.GetInt("Score2",0);
 
 			//----- score save -----
 			if (playingstage == 1)
@@ -81,6 +83,34 @@ public class MesseageRead : MonoBehaviour
 
 			else if (playingstage == 2)
 			{
+				if (1000 < score2)
+				{
+					score2 = score2 - 1000;
+					FlagManager.Instance.flags [12] = true;
+				}
+
+				// ハイスコア更新
+				if (score2 < score.scoredata)
+				{
+					int highscore = score.scoredata;
+
+					if (itemcount.itemcount == 3)
+					{
+						highscore = highscore + 1000;
+					}
+
+					PlayerPrefs.SetInt ("Score2", highscore);
+				}
+
+				else
+				{
+					if (FlagManager.Instance.flags [12] == true)
+					{
+						score2 = score2 + 1000;
+					}
+
+					PlayerPrefs.SetInt ("Score2", score2);
+				}
 			}
 
 			//----- maxstage save -----
@@ -110,6 +140,7 @@ public class MesseageRead : MonoBehaviour
 
 		else if (playingstage == 2)
 		{
+			SceneManager.LoadScene ("Stage2(Gravity)");
 		}
 	}
 

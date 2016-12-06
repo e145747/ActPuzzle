@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿//要編集？
+
+using UnityEngine;
 using System.Collections;
 
 public class Score : MonoBehaviour
@@ -27,6 +29,17 @@ public class Score : MonoBehaviour
 				// 最適解:4 ボーダー:14
 				int blockdata = 70 - (7 * (block.breakcount - 4));  // 70点分
 				int itemdata  = item.itemcount * 10;                // 30点分
+
+				check(ref blockdata);
+
+				scoredata = blockdata + itemdata;
+			}
+
+			if (playingstage == 2)
+			{
+				// 最適解:6 ボーダー:14
+				int blockdata = 70 - (9 * (block.breakcount - 6));  // 70点分
+				int itemdata  = item.itemcount * 10;                 // 30点分
 
 				check(ref blockdata);
 
