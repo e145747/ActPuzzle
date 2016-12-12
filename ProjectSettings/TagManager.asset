@@ -15,6 +15,7 @@ TagManager:
   - StopTrigger
   - Messeage
   - Killer
+  - BBarrier
   layers:
   - Default
   - TransparentFX

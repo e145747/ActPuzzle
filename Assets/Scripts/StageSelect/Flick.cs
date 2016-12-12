@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿//要編集
+
+using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
 
@@ -17,6 +19,7 @@ public class Flick : MonoBehaviour
 	public int maxstage;
 	public int score1;
 	public int score2;
+	public int score3;
 
 	void Start ()
 	{
@@ -26,6 +29,7 @@ public class Flick : MonoBehaviour
 		maxstage     = PlayerPrefs.GetInt("MaxStage",1);
 		score1       = PlayerPrefs.GetInt("Score1",0);   // if(1000<=score1) score=score1-1000
 		score2       = PlayerPrefs.GetInt("Score2",0);
+		score3       = PlayerPrefs.GetInt("Score3",0);
 
 		if (clear == 0)
 		{
@@ -48,7 +52,6 @@ public class Flick : MonoBehaviour
 		Debug.Log ("clear : " + clear);
 		Debug.Log ("playingstage : " + playingstage);
 		Debug.Log ("maxstage : " + maxstage);
-		Debug.Log ("score1 : " + score1);
 	}
 
 	void Update ()
@@ -82,6 +85,11 @@ public class Flick : MonoBehaviour
 					if (playingstage == 2)
 					{
 						SceneManager.LoadScene ("Stage2(Gravity)");
+					}
+
+					if (playingstage == 3)
+					{
+						SceneManager.LoadScene ("Stage3(Mist)");
 					}
 				}
 			}

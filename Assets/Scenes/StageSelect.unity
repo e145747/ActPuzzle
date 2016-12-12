@@ -172,6 +172,8 @@ MonoBehaviour:
   playingstage: 0
   maxstage: 0
   score1: 0
+  score2: 0
+  score3: 0
 --- !u!114 &42812039
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1594,7 +1596,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8fa72a2944e24a3b93cb547dab615a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MainSprite: {fileID: 0}
+  MainSprite: {fileID: 21300000, guid: d3665fe3f7c014594884240b2d5a0943, type: 3}
 --- !u!1 &1163939259
 GameObject:
   m_ObjectHideFlags: 0

@@ -16,6 +16,7 @@ public class MesseageRead : MonoBehaviour
 	int maxstage;
 	int score1;
 	int score2;
+	int score3;
 
 	void Start ()
 	{
@@ -47,6 +48,7 @@ public class MesseageRead : MonoBehaviour
 			maxstage     = PlayerPrefs.GetInt("MaxStage",1);
 			score1       = PlayerPrefs.GetInt("Score1",0);
 			score2       = PlayerPrefs.GetInt("Score2",0);
+			score3       = PlayerPrefs.GetInt("Score3",0);
 
 			//----- score save -----
 			if (playingstage == 1)
@@ -113,6 +115,38 @@ public class MesseageRead : MonoBehaviour
 				}
 			}
 
+			else if (playingstage == 3)
+			{
+				if (1000 < score3)
+				{
+					score3 = score3 - 1000;
+					FlagManager.Instance.flags [12] = true;
+				}
+
+				// ハイスコア更新
+				if (score3 < score.scoredata)
+				{
+					int highscore = score.scoredata;
+
+					if (itemcount.itemcount == 3)
+					{
+						highscore = highscore + 1000;
+					}
+
+					PlayerPrefs.SetInt ("Score3", highscore);
+				}
+
+				else
+				{
+					if (FlagManager.Instance.flags [12] == true)
+					{
+						score3 = score3 + 1000;
+					}
+
+					PlayerPrefs.SetInt ("Score3", score3);
+				}
+			}
+
 			//----- maxstage save -----
 			if (playingstage == maxstage)   // + if (maxstage < 10)
 			{
@@ -141,6 +175,11 @@ public class MesseageRead : MonoBehaviour
 		else if (playingstage == 2)
 		{
 			SceneManager.LoadScene ("Stage2(Gravity)");
+		}
+
+		else if (playingstage == 3)
+		{
+			SceneManager.LoadScene ("Stage3(Mist)");
 		}
 	}
 

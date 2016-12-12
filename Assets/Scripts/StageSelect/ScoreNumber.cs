@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿// 要編集
+
+using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 
@@ -23,8 +25,8 @@ public class ScoreNumber : MonoBehaviour
 		
 		score1pt  = stagenum.score1;
 		score2pt  = stagenum.score2;
-		score3pt  = stagenum.score1;  // あとで編集
-		score4pt  = stagenum.score1;
+		score3pt  = stagenum.score3;
+		score4pt  = stagenum.score1;  // あとで編集
 		score5pt  = stagenum.score1;
 		score6pt  = stagenum.score1;
 		score7pt  = stagenum.score1;
@@ -62,6 +64,16 @@ public class ScoreNumber : MonoBehaviour
 				}
 
 				ScoreText.text = "SCORE : " + score2pt.ToString ();
+			}
+
+			else if (stagenum.playingstage == 3)
+			{
+				if (1000 < score3pt)
+				{
+					score3pt = score3pt - 1000;
+				}
+
+				ScoreText.text = "SCORE : " + score3pt.ToString ();
 			}
 
 			else

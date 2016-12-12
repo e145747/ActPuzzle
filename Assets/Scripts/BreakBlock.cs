@@ -65,6 +65,23 @@ public class BreakBlock : MonoBehaviour
 					Debug.Log ("Direction");
 				}
 
+				if (collider.gameObject.tag == "BBarrier")
+				{
+					FlagManager.Instance.flags [16] = true;
+
+					GameObject gameobject = collider.transform.gameObject;
+
+					Animator anime = gameobject.GetComponent<Animator> ();
+					anime.Play ("Break", 0, 0.0f);
+
+					for (int i = 0; i < 5; i++)
+					{
+						StartCoroutine (Breakblock(gameobject));
+					}
+
+					Debug.Log ("BBarrier");
+				}
+
 				if (collider.gameObject.tag == "Warp1")
 				{
 					// Warp Block の 色が変更されてるなら
