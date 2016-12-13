@@ -16,6 +16,8 @@ TagManager:
   - Messeage
   - Killer
   - BBarrier
+  - Warp(1)out
+  - Warp(2)in
   layers:
   - Default
   - TransparentFX

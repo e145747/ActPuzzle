@@ -82,6 +82,7 @@ public class BreakBlock : MonoBehaviour
 					Debug.Log ("BBarrier");
 				}
 
+				/*
 				if (collider.gameObject.tag == "Warp1")
 				{
 					// Warp Block の 色が変更されてるなら
@@ -97,6 +98,7 @@ public class BreakBlock : MonoBehaviour
 						StartCoroutine (Breakblock(gameobject));
 					}
 				}
+				*/
 
                 else
                 {
