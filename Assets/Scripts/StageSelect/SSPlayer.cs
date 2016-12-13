@@ -4,6 +4,7 @@ using System.Collections;
 public class SSPlayer : MonoBehaviour
 {
 	Rigidbody2D act;
+	GameObject cam;
 
 	private int xx;
 	public  float speed;
@@ -17,6 +18,7 @@ public class SSPlayer : MonoBehaviour
 		speed = 0;
 
 		act = GetComponent<Rigidbody2D>();
+		cam = GameObject.Find("MainCamera");
 
 		playingstage = PlayerPrefs.GetInt("PlayingStage",0);
 	}
@@ -50,9 +52,20 @@ public class SSPlayer : MonoBehaviour
 
 	void OnTriggerEnter2D (Collider2D collider)
 	{
-		if (collider.gameObject.tag != "SelectStage")
+		Flick stagenum = cam.GetComponent<Flick>();
+
+		if (collider.gameObject.tag == "StopTrigger")
 		{
 			speed = 0;
+
+			if (0 < stagenum.playingstage)
+			{
+				transform.position = new Vector2 (stagenum.playingstage * 3.7f, 3.96f);
+			}
+			else
+			{
+				transform.position = new Vector2 (-3.7f, 3.96f);
+			}
 		}
 	}
 }

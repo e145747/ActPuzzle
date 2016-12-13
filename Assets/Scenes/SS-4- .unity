@@ -159,8 +159,8 @@ MonoBehaviour:
   player: {fileID: 0}
   x: 0
   y: 0
-  xborder: 0.00019
-  yborder: 0.00019
+  xborder: 0.00005
+  yborder: 0.000145
 --- !u!114 &16375834
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,6 +184,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72207f63cd238458497c97f37cd962e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BreakSE: {fileID: 0}
+  GravitySE: {fileID: 0}
 --- !u!114 &16375836
 MonoBehaviour:
   m_ObjectHideFlags: 0
