@@ -17,6 +17,7 @@ public class MesseageRead : MonoBehaviour
 	int score1;
 	int score2;
 	int score3;
+	int score4;
 
 	void Start ()
 	{
@@ -147,6 +148,39 @@ public class MesseageRead : MonoBehaviour
 				}
 			}
 
+			else if (playingstage == 4)
+			{
+				if (1000 < score4)
+				{
+					score4 = score4 - 1000;
+					FlagManager.Instance.flags [12] = true;
+				}
+
+				// ハイスコア更新
+				if (score4 < score.scoredata)
+				{
+					int highscore = score.scoredata;
+
+					if (itemcount.itemcount == 3)
+					{
+						highscore = highscore + 1000;
+					}
+
+					PlayerPrefs.SetInt ("Score4", highscore);
+				}
+
+				else
+				{
+					if (FlagManager.Instance.flags [12] == true)
+					{
+						score4 = score4 + 1000;
+					}
+
+					PlayerPrefs.SetInt ("Score4", score3);
+				}
+			}
+
+
 			//----- maxstage save -----
 			if (playingstage == maxstage)   // + if (maxstage < 10)
 			{
@@ -180,6 +214,11 @@ public class MesseageRead : MonoBehaviour
 		else if (playingstage == 3)
 		{
 			SceneManager.LoadScene ("Stage3(Mist)");
+		}
+
+		else if (playingstage == 4)
+		{
+			SceneManager.LoadScene ("Stage4(Direction)");
 		}
 	}
 

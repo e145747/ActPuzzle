@@ -56,6 +56,17 @@ public class Score : MonoBehaviour
 
 				scoredata = blockdata + itemdata;
 			}
+
+			if (playingstage == 4)
+			{
+				// 最適解:14 ボーダー:28
+				int blockdata = 70 - (5 * (block.breakcount - 14));  // 70点分
+				int itemdata  = item.itemcount * 10;                 // 30点分
+
+				check(ref blockdata);
+
+				scoredata = blockdata + itemdata;
+			}
 		}
 	}
 

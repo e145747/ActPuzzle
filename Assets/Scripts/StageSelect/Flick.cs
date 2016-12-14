@@ -20,6 +20,7 @@ public class Flick : MonoBehaviour
 	public int score1;
 	public int score2;
 	public int score3;
+	public int score4;
 
 	void Start ()
 	{
@@ -30,6 +31,7 @@ public class Flick : MonoBehaviour
 		score1       = PlayerPrefs.GetInt("Score1",0);   // if(1000<=score1) score=score1-1000
 		score2       = PlayerPrefs.GetInt("Score2",0);
 		score3       = PlayerPrefs.GetInt("Score3",0);
+		score4       = PlayerPrefs.GetInt("Score4",0);
 
 		if (clear == 0)
 		{
@@ -90,6 +92,11 @@ public class Flick : MonoBehaviour
 					if (playingstage == 3)
 					{
 						SceneManager.LoadScene ("Stage3(Mist)");
+					}
+
+					if (playingstage == 4)
+					{
+						SceneManager.LoadScene ("Stage4(Direction)");
 					}
 				}
 			}
