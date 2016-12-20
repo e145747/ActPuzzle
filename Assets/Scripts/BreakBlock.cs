@@ -15,12 +15,12 @@ public class BreakBlock : MonoBehaviour
 
 	void Update ()
 	{
-		if (Input.GetMouseButtonDown (0))
+		if (Input.GetMouseButtonUp (0))
 		{
 			Vector2 tapPoint = UnityEngine.Camera.main.ScreenToWorldPoint (Input.mousePosition);
 			Collider2D collider = Physics2D.OverlapPoint (tapPoint);
 
-			if (FlagManager.Instance.flags [2] == false)
+			if (FlagManager.Instance.flags [2] == false && FlagManager.Instance.flags [14] == false)
             {
                 if (collider.gameObject.tag == "Normal")
 				{
@@ -54,6 +54,15 @@ public class BreakBlock : MonoBehaviour
 				if (collider.gameObject.tag == "Direction")
 				{
 					FlagManager.Instance.flags [4] = true;
+
+					if (FlagManager.Instance.flags [1] == false)
+					{
+						FlagManager.Instance.flags [1] = true;
+					}
+					else
+					{
+						FlagManager.Instance.flags [1] = false;
+					}
 
 					GameObject gameobject = collider.transform.gameObject;
 

@@ -15,7 +15,7 @@ public class Warp : MonoBehaviour {
 	{
 		if (collider.gameObject.tag == "Player")
 		{
-			// PlayerがWarp Blockに当たったか判定
+			// PlayerがWarpに当たったか判定
 			FlagManager.Instance.flags [6] = true;
 
 			Debug.Log ("hit player");
