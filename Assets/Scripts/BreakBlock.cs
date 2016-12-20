@@ -7,10 +7,12 @@ public class BreakBlock : MonoBehaviour
 	public AudioClip GravitySE;
 
 	GameObject breakcount;
+	Animator animet;
 
 	void Start ()
 	{
 		breakcount = GameObject.Find("MainCamera");
+		animet = GetComponent<Animator>();
 	}
 
 	void Update ()
@@ -20,7 +22,7 @@ public class BreakBlock : MonoBehaviour
 			Vector2 tapPoint = UnityEngine.Camera.main.ScreenToWorldPoint (Input.mousePosition);
 			Collider2D collider = Physics2D.OverlapPoint (tapPoint);
 
-			if (FlagManager.Instance.flags [2] == false && FlagManager.Instance.flags [14] == false)
+			if (FlagManager.Instance.flags [2] == false && FlagManager.Instance.flags [14] == false && FlagManager.Instance.flags [17] == false)
             {
                 if (collider.gameObject.tag == "Normal")
 				{
@@ -55,21 +57,23 @@ public class BreakBlock : MonoBehaviour
 				{
 					FlagManager.Instance.flags [4] = true;
 
-					if (FlagManager.Instance.flags [1] == false)
-					{
-						FlagManager.Instance.flags [1] = true;
-					}
-					else
-					{
-						FlagManager.Instance.flags [1] = false;
-					}
-
 					GameObject gameobject = collider.transform.gameObject;
 
 					Animator anime = gameobject.GetComponent<Animator> ();
 					anime.Play ("Break", 0, 0.0f);
 
 					StartCoroutine (Breakblock(gameobject));
+
+					if (FlagManager.Instance.flags [1] == false)
+					{
+						animet.SetBool ("Attached", true);
+						FlagManager.Instance.flags [1] = true;
+					}
+					else
+					{
+						animet.SetBool ("Attached", false);
+						FlagManager.Instance.flags [1] = false;
+					}
 
 					Debug.Log ("Direction");
 				}

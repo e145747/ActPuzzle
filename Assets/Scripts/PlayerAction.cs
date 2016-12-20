@@ -104,8 +104,8 @@ public class PlayerAction : MonoBehaviour
 		if (collider.gameObject.tag == "Killer")
 		{
 			FlagManager.Instance.flags [2]  = true;
-			FlagManager.Instance.flags [13] = true;
-			gameObject.SetActive (false);
+			FlagManager.Instance.flags [17]  = true;
+			Invoke ("Death",1f);
 		}
 
 		if (collider.gameObject.tag == "Warp_Out(1)")
@@ -125,5 +125,16 @@ public class PlayerAction : MonoBehaviour
 		{
 			FlagManager.Instance.flags [2] = false;
 		}
+	}
+
+	void Death ()
+	{
+		gameObject.SetActive (false);
+		Invoke ("DeathMesseage",2f);
+	}
+
+	void DeathMesseage ()
+	{
+		FlagManager.Instance.flags [13] = true;
 	}
 }
