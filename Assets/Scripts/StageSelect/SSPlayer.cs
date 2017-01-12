@@ -14,9 +14,6 @@ public class SSPlayer : MonoBehaviour
 
 	void Start ()
 	{
-		xx    = 0;
-		speed = 0;
-
 		act = GetComponent<Rigidbody2D>();
 		cam = GameObject.Find("MainCamera");
 
@@ -25,6 +22,8 @@ public class SSPlayer : MonoBehaviour
 
 	void Update ()
 	{
+		Flick stagenum = cam.GetComponent<Flick>();
+
 		if (FlagManager.Instance.flags [11] == true)
 		{
 			transform.position = new Vector2 (playingstage * 3.7f, 3.96f);
@@ -35,36 +34,20 @@ public class SSPlayer : MonoBehaviour
 			FlagManager.Instance.flags [11] = false;
 		}
 
-		act.velocity = new Vector2 (xx, 0).normalized * speed;
-	}
-
-	public void Right ()
-	{
-		xx    = 1;
-		speed = 5;
-	}
-
-	public void Left ()
-	{
-		xx    = -1;
-		speed = 5;
-	}
-
-	void OnTriggerEnter2D (Collider2D collider)
-	{
-		Flick stagenum = cam.GetComponent<Flick>();
-
-		if (collider.gameObject.tag == "StopTrigger")
+		else
 		{
-			speed = 0;
+			if (stagenum.moving == true)
+			{
+				if (stagenum.playingstage == 0)
+				{
+					transform.position = new Vector2 (-3.7f, 3.96f);
+				}
+				else
+				{
+					transform.position = new Vector2 (stagenum.playingstage * 3.7f, 3.96f);
+				}
 
-			if (0 < stagenum.playingstage)
-			{
-				transform.position = new Vector2 (stagenum.playingstage * 3.7f, 3.96f);
-			}
-			else
-			{
-				transform.position = new Vector2 (-3.7f, 3.96f);
+				stagenum.moving = false;
 			}
 		}
 	}
