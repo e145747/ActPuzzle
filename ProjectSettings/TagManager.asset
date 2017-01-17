@@ -18,6 +18,8 @@ TagManager:
   - BBarrier
   - Warp_Out(1)
   - Warp_In(1)
+  - Warp_Out(2)
+  - Warp_In(2)
   layers:
   - Default
   - TransparentFX

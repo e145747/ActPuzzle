@@ -7,7 +7,7 @@ public class PlayerAction : MonoBehaviour
 	GameObject gravitypm;
 	AntiGravity gg;
 
-	public GameObject Fo,Si; // WarpObject用
+	public GameObject Fo,Si,Fo2,Si2; // WarpObject用
 
 	private int xx = 1;
 
@@ -17,8 +17,10 @@ public class PlayerAction : MonoBehaviour
 		gravitypm = GameObject.Find("MainCamera");
 		gg = gravitypm.GetComponent<AntiGravity>();
 
-		Fo = GameObject.Find ("WarpTriggerOut1"); // FindでWarp(1)outを取ってくる
-		Si = GameObject.Find ("WarpTriggerIn1"); // FindでWarp(2)inを取ってくる
+		Fo = GameObject.Find ("WarpTriggerOut1");
+		Si = GameObject.Find ("WarpTriggerIn1");
+		Fo2 = GameObject.Find ("WarpTriggerOut2");
+		Si2 = GameObject.Find ("WarpTriggerIn2");
 	}
 
 	void Update ()
@@ -55,24 +57,47 @@ public class PlayerAction : MonoBehaviour
 		{
 			if (FlagManager.Instance.flags [20] == true) { // WarpTriggerOut1に触れた
 				if (FlagManager.Instance.flags [1] == true) { // 左向きに進んでるなら
-					transform.position = new Vector2 (Si.transform.position.x - 0.6f, Si.transform.position.y);
+					transform.position = new Vector2 (Si.transform.position.x - 0.65f, Si.transform.position.y);
 					FlagManager.Instance.flags [6] = false;
 					FlagManager.Instance.flags [20] = false;
 				} else { // 右向きに進んでるなら
-					transform.position = new Vector2 (Si.transform.position.x + 0.6f, Si.transform.position.y);
+					transform.position = new Vector2 (Si.transform.position.x + 0.65f, Si.transform.position.y);
 					FlagManager.Instance.flags [6] = false;
 					FlagManager.Instance.flags [20] = false;
 				}
 			}
 			if (FlagManager.Instance.flags [21] == true) { // WarpTriggerIn1に触れた
 				if (FlagManager.Instance.flags [1] == true) { // 左向きに進んでるなら
-					transform.position = new Vector2 (Fo.transform.position.x - 0.6f, Fo.transform.position.y);
+					transform.position = new Vector2 (Fo.transform.position.x - 0.65f, Fo.transform.position.y);
 					FlagManager.Instance.flags [6] = false;
 					FlagManager.Instance.flags [21] = false;
 				} else { // 右向きに進んでるなら
-					transform.position = new Vector2 (Fo.transform.position.x + 0.6f, Fo.transform.position.y);
+					transform.position = new Vector2 (Fo.transform.position.x + 0.65f, Fo.transform.position.y);
 					FlagManager.Instance.flags [6] = false;
 					FlagManager.Instance.flags [21] = false;
+				}
+			}
+
+			if (FlagManager.Instance.flags [22] == true) { // WarpTriggerOut2に触れた
+				if (FlagManager.Instance.flags [1] == true) { // 左向きに進んでるなら
+					transform.position = new Vector2 (Si2.transform.position.x - 0.65f, Si2.transform.position.y);
+					FlagManager.Instance.flags [6] = false;
+					FlagManager.Instance.flags [22] = false;
+				} else { // 右向きに進んでるなら
+					transform.position = new Vector2 (Si2.transform.position.x + 0.65f, Si2.transform.position.y);
+					FlagManager.Instance.flags [6] = false;
+					FlagManager.Instance.flags [22] = false;
+				}
+			}
+			if (FlagManager.Instance.flags [23] == true) { // WarpTriggerIn2に触れた
+				if (FlagManager.Instance.flags [1] == true) { // 左向きに進んでるなら
+					transform.position = new Vector2 (Fo2.transform.position.x - 0.65f, Fo2.transform.position.y);
+					FlagManager.Instance.flags [6] = false;
+					FlagManager.Instance.flags [23] = false;
+				} else { // 右向きに進んでるなら
+					transform.position = new Vector2 (Fo2.transform.position.x + 0.65f, Fo2.transform.position.y);
+					FlagManager.Instance.flags [6] = false;
+					FlagManager.Instance.flags [23] = false;
 				}
 			}
 		}
@@ -112,10 +137,17 @@ public class PlayerAction : MonoBehaviour
 		{
 			FlagManager.Instance.flags [20] = true; // PlyaerがWarp(1)outに触れたらフラグ20が立つ
 		}
-
 		if (collider.gameObject.tag == "Warp_In(1)")
 		{
 			FlagManager.Instance.flags [21] = true; // PlayerがWarp(2)inに触れたらフラグ21が立つ
+		}
+		if (collider.gameObject.tag == "Warp_Out(2)")
+		{
+			FlagManager.Instance.flags [22] = true; // PlyaerがWarp(1)outに触れたらフラグ20が立つ
+		}
+		if (collider.gameObject.tag == "Warp_In(2)")
+		{
+			FlagManager.Instance.flags [23] = true; // PlayerがWarp(2)inに触れたらフラグ21が立つ
 		}
 	}
 
