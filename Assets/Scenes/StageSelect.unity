@@ -174,6 +174,7 @@ MonoBehaviour:
   score2: 0
   score3: 0
   score4: 0
+  score5: 0
 --- !u!114 &42812039
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -691,9 +692,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f3721fa9aaa64b9fa42c18e9d7367b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playermove: {fileID: 0}
-  buttonL: {fileID: 0}
-  buttonR: {fileID: 0}
 --- !u!1 &460312358
 GameObject:
   m_ObjectHideFlags: 0
@@ -2774,7 +2772,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fab660db4b2d4eeb8374ed7c2830c9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MainSprite: {fileID: 0}
+  MainSprite: {fileID: 21300000, guid: 3d63600029bae4201bcc3c6033ce20b2, type: 3}
 --- !u!1 &1833170726
 GameObject:
   m_ObjectHideFlags: 0

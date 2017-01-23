@@ -18,6 +18,7 @@ public class MesseageRead : MonoBehaviour
 	int score2;
 	int score3;
 	int score4;
+	int score5;
 
 	void Start ()
 	{
@@ -50,6 +51,8 @@ public class MesseageRead : MonoBehaviour
 			score1       = PlayerPrefs.GetInt("Score1",0);
 			score2       = PlayerPrefs.GetInt("Score2",0);
 			score3       = PlayerPrefs.GetInt("Score3",0);
+			score4       = PlayerPrefs.GetInt("Score4",0);
+			score5       = PlayerPrefs.GetInt("Score5",0);
 
 			//----- score save -----
 			if (playingstage == 1)
@@ -176,7 +179,39 @@ public class MesseageRead : MonoBehaviour
 						score4 = score4 + 1000;
 					}
 
-					PlayerPrefs.SetInt ("Score4", score3);
+					PlayerPrefs.SetInt ("Score4", score4);
+				}
+			}
+
+			else if (playingstage == 5)
+			{
+				if (1000 < score5)
+				{
+					score5 = score5 - 1000;
+					FlagManager.Instance.flags [12] = true;
+				}
+
+				// ハイスコア更新
+				if (score5 < score.scoredata)
+				{
+					int highscore = score.scoredata;
+
+					if (itemcount.itemcount == 3)
+					{
+						highscore = highscore + 1000;
+					}
+
+					PlayerPrefs.SetInt ("Score5", highscore);
+				}
+
+				else
+				{
+					if (FlagManager.Instance.flags [12] == true)
+					{
+						score4 = score4 + 1000;
+					}
+
+					PlayerPrefs.SetInt ("Score5", score5);
 				}
 			}
 
@@ -219,6 +254,11 @@ public class MesseageRead : MonoBehaviour
 		else if (playingstage == 4)
 		{
 			SceneManager.LoadScene ("Stage4(Direction)");
+		}
+
+		else if (playingstage == 5)
+		{
+			SceneManager.LoadScene ("Stage5(Gate)");
 		}
 	}
 

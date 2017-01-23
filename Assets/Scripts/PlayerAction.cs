@@ -47,9 +47,20 @@ public class PlayerAction : MonoBehaviour
 		{
 			if (FlagManager.Instance.flags [2] == false)
 			{
+				if (FlagManager.Instance.flags [1] == false)
+				{
+					FlagManager.Instance.flags [1] = true;
+				}
+				else
+				{
+					FlagManager.Instance.flags [1] = false;
+				}
+
 				xx = xx * -1;
-				FlagManager.Instance.flags [4] = false;
+				FlagManager.Instance.flags [30] = true;
 			}
+
+			FlagManager.Instance.flags [4] = false;
 		}
 
 		// warp
@@ -114,7 +125,17 @@ public class PlayerAction : MonoBehaviour
 		{
 			if (FlagManager.Instance.flags [2] == false)
 			{
+				if (FlagManager.Instance.flags [1] == false)
+				{
+					FlagManager.Instance.flags [1] = true;
+				}
+				else
+				{
+					FlagManager.Instance.flags [1] = false;
+				}
+
 				xx = xx * -1;
+				FlagManager.Instance.flags [30] = true;
 			}
 		}
 

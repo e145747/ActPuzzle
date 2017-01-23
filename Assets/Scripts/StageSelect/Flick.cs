@@ -17,6 +17,7 @@ public class Flick : MonoBehaviour
 	public int score2;
 	public int score3;
 	public int score4;
+	public int score5;
 
 	void Start ()
 	{
@@ -28,6 +29,7 @@ public class Flick : MonoBehaviour
 		score2       = PlayerPrefs.GetInt("Score2",0);
 		score3       = PlayerPrefs.GetInt("Score3",0);
 		score4       = PlayerPrefs.GetInt("Score4",0);
+		score5       = PlayerPrefs.GetInt("Score5",0);
 
 		if (clear == 0)
 		{
@@ -83,6 +85,11 @@ public class Flick : MonoBehaviour
 					if (playingstage == 4)
 					{
 						SceneManager.LoadScene ("Stage4(Direction)");
+					}
+
+					if (playingstage == 5)
+					{
+						SceneManager.LoadScene ("Stage5(Gate)");
 					}
 				}
 			}
