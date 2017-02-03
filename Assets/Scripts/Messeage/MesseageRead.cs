@@ -208,7 +208,7 @@ public class MesseageRead : MonoBehaviour
 				{
 					if (FlagManager.Instance.flags [12] == true)
 					{
-						score4 = score4 + 1000;
+						score5 = score5 + 1000;
 					}
 
 					PlayerPrefs.SetInt ("Score5", score5);
