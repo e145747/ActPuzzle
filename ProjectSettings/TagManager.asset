@@ -20,6 +20,12 @@ TagManager:
   - Warp_In(1)
   - Warp_Out(2)
   - Warp_In(2)
+  - Warp_Out(3)
+  - Warp_In(3)
+  - Warp_Out(4)
+  - Warp_In(4)
+  - Warp_Out(5)
+  - Warp_In(5)
   layers:
   - Default
   - TransparentFX
