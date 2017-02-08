@@ -217,7 +217,7 @@ public class MesseageRead : MonoBehaviour
 
 
 			//----- maxstage save -----
-			if (playingstage == maxstage)   // + if (maxstage < 10)
+			if (playingstage == maxstage && playingstage <= 5)   // + if (maxstage < 10)
 			{
 				maxstage = maxstage + 1;
 				PlayerPrefs.SetInt ("MaxStage", maxstage);
@@ -260,6 +260,11 @@ public class MesseageRead : MonoBehaviour
 		{
 			SceneManager.LoadScene ("Stage5(Gate)");
 		}
+
+		else if (playingstage == 6)
+		{
+			SceneManager.LoadScene ("Stage6(Block)");
+		}
 	}
 
 	public void OnClickRetire()
@@ -272,7 +277,7 @@ public class MesseageRead : MonoBehaviour
 
 	public void OnClickMenu()
 	{
-		if (FlagManager.Instance.flags [0] == false && FlagManager.Instance.flags [10] == false && FlagManager.Instance.flags [13] == false)
+		if (FlagManager.Instance.flags [0] == false && FlagManager.Instance.flags [10] == false && FlagManager.Instance.flags [13] == false && FlagManager.Instance.flags [32] == false)
 		{
 			if (FlagManager.Instance.flags [14] == false)
 			{
@@ -286,6 +291,13 @@ public class MesseageRead : MonoBehaviour
 				FlagManager.Instance.flags [14] = false;
 			}
 		}
+	}
+
+	public void OnClickContinue()
+	{
+		// クリア(偽)の処理を記述
+
+		FlagManager.Instance.flags [32] = true;
 	}
 
 	void Wait ()

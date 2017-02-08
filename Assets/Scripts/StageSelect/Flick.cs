@@ -91,6 +91,11 @@ public class Flick : MonoBehaviour
 					{
 						SceneManager.LoadScene ("Stage5(Gate)");
 					}
+
+					if (playingstage == 6)
+					{
+						SceneManager.LoadScene ("Stage6(Block)");
+					}
 				}
 			}
 		}

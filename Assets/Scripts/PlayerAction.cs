@@ -281,12 +281,29 @@ public class PlayerAction : MonoBehaviour
 
 	void Death ()
 	{
+		int playingstage = PlayerPrefs.GetInt("PlayingStage",0);
+
 		gameObject.SetActive (false);
-		Invoke ("DeathMesseage",2f);
+
+		if (playingstage <= 5)
+		{
+			Invoke ("DeathMesseage",2f);
+		}
+
+		else
+		{
+			FlagManager.Instance.flags [32] = true;
+			Invoke ("ClearTurn",2f);
+		}
 	}
 
 	void DeathMesseage ()
 	{
 		FlagManager.Instance.flags [13] = true;
+	}
+
+	void ClearTurn ()
+	{
+		// クリア(偽)の処理を記述
 	}
 }

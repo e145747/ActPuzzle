@@ -14,7 +14,7 @@ public class Messeage : MonoBehaviour
 
 	void Update ()
 	{
-		if (FlagManager.Instance.flags [0] == true)
+		if (FlagManager.Instance.flags [0] == true && FlagManager.Instance.flags [31] == false)
 		{
 			if (FlagManager.Instance.flags [10] == false && messeagenum == 0)
 			{
@@ -37,6 +37,36 @@ public class Messeage : MonoBehaviour
 			else if (FlagManager.Instance.flags [10] == false && messeagenum == 3)
 			{
 				GameObject target = this.transform.Find ("Tutorial4").gameObject;
+				target.SetActive(true);
+			}
+
+			else if (FlagManager.Instance.flags [10] == false && messeagenum == 4)
+			{
+				GameObject target = this.transform.Find ("Tutorial5").gameObject;
+				target.SetActive(true);
+			}
+
+			else if (FlagManager.Instance.flags [10] == false && messeagenum == 5)
+			{
+				GameObject target = this.transform.Find ("Tutorial6").gameObject;
+				target.SetActive(true);
+			}
+
+			else if (FlagManager.Instance.flags [10] == false && messeagenum == 6)
+			{
+				GameObject target = this.transform.Find ("Tutorial7").gameObject;
+				target.SetActive(true);
+			}
+
+			else if (FlagManager.Instance.flags [10] == false && messeagenum == 7)
+			{
+				GameObject target = this.transform.Find ("Tutorial8").gameObject;
+				target.SetActive(true);
+			}
+
+			else if (FlagManager.Instance.flags [10] == false && messeagenum == 8)
+			{
+				GameObject target = this.transform.Find ("Tutorial9").gameObject;
 				target.SetActive(true);
 			}
 
@@ -85,6 +115,30 @@ public class Messeage : MonoBehaviour
 			retire.SetActive (false);
 			stagen.SetActive (false);
 			staget.SetActive (false);
+		}
+
+		//クリア(偽)(最終ステージ)
+		if (FlagManager.Instance.flags [31] == true && FlagManager.Instance.flags [32] == false)
+		{
+			GameObject target = this.transform.Find ("Clear").gameObject;
+			GameObject continued = this.transform.Find ("Continue").gameObject;
+			GameObject retryd = this.transform.Find ("Retire").gameObject;
+			GameObject cmesseage = this.transform.Find ("CMesseage").gameObject;
+			target.SetActive(true);
+			continued.SetActive(true);
+			retryd.SetActive(true);
+			cmesseage.SetActive (true);
+		}
+		else if (FlagManager.Instance.flags [31] == true && FlagManager.Instance.flags [32] == true)
+		{
+			GameObject target = this.transform.Find ("Clear").gameObject;
+			GameObject continued = this.transform.Find ("Continue").gameObject;
+			GameObject retryd = this.transform.Find ("Retire").gameObject;
+			GameObject cmesseage = this.transform.Find ("CMesseage").gameObject;
+			target.SetActive(false);
+			continued.SetActive(false);
+			retryd.SetActive(false);
+			cmesseage.SetActive (false);
 		}
 	}
 }

@@ -4,8 +4,11 @@ using UnityEngine.UI;
 
 public class Clear : MonoBehaviour
 {
+	public int playingstage;
+
 	void Start ()
 	{
+		playingstage = PlayerPrefs.GetInt("PlayingStage",0);
 	}
 
 	void Update ()
@@ -16,9 +19,18 @@ public class Clear : MonoBehaviour
 	{
 		if (collider.gameObject.tag == "Player")
 		{
-			FlagManager.Instance.flags [0]  = true;
-			FlagManager.Instance.flags [2]  = true;
-			FlagManager.Instance.flags [10] = true;
+			if (playingstage <= 5)
+			{
+				FlagManager.Instance.flags [0]  = true;
+				FlagManager.Instance.flags [2]  = true;
+				FlagManager.Instance.flags [10] = true;
+			}
+			else
+			{
+				FlagManager.Instance.flags [0]  = true;
+				FlagManager.Instance.flags [2]  = true;
+				FlagManager.Instance.flags [31] = true;
+			}
 		}
 	}
 }

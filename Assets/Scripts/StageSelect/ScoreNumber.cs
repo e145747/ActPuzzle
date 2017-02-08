@@ -14,10 +14,6 @@ public class ScoreNumber : MonoBehaviour
 	int score4pt;
 	int score5pt;
 	int score6pt;
-	int score7pt;
-	int score8pt;
-	int score9pt;
-	int score10pt;
 
 	void Start ()
 	{
@@ -29,10 +25,6 @@ public class ScoreNumber : MonoBehaviour
 		score4pt  = stagenum.score4;
 		score5pt  = stagenum.score5;
 		score6pt  = stagenum.score1;  // あとで編集
-		score7pt  = stagenum.score1;
-		score8pt  = stagenum.score1;
-		score9pt  = stagenum.score1;
-		score10pt = stagenum.score1;
 	}
 
 	void Update ()
