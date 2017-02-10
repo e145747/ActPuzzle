@@ -293,11 +293,9 @@ public class MesseageRead : MonoBehaviour
 		}
 	}
 
-	public void OnClickContinue()
+	public void OnClickContinue()  // クリア(偽)の処理を記述
 	{
-		// クリア(偽)の処理を記述
-
-		FlagManager.Instance.flags [32] = true;
+		FlagManager.Instance.flags [31] = true;
 	}
 
 	void Wait ()

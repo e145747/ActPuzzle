@@ -19,3 +19,5 @@ EditorBuildSettings:
     path: Assets/Scenes/Stage5(Gate).unity
   - enabled: 1
     path: Assets/Scenes/Stage6(Block).unity
+  - enabled: 1
+    path: Assets/Scenes/StaffRoll.unity

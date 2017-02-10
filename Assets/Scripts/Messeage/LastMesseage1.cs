@@ -29,7 +29,7 @@ public class LastMesseage1 : MonoBehaviour
 	{
 		Messeage messeage = mnumber.GetComponent<Messeage>();
 
-		if (FlagManager.Instance.flags [0] == true && FlagManager.Instance.flags [10] == false && FlagManager.Instance.flags [31] == false)
+		if (FlagManager.Instance.flags [0] == true && FlagManager.Instance.flags [10] == false && FlagManager.Instance.flags [32] == false)
 		{
 			if (messeage.messeagenum == 0)
 			{

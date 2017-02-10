@@ -29,7 +29,7 @@ public class Clear : MonoBehaviour
 			{
 				FlagManager.Instance.flags [0]  = true;
 				FlagManager.Instance.flags [2]  = true;
-				FlagManager.Instance.flags [31] = true;
+				FlagManager.Instance.flags [32] = true;
 			}
 		}
 	}

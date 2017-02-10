@@ -5,8 +5,6 @@ public class Messeage : MonoBehaviour
 {
 	public int messeagenum;
 
-	private int playingstage;
-
 	void Start ()
 	{
 		messeagenum = 0;
@@ -14,7 +12,7 @@ public class Messeage : MonoBehaviour
 
 	void Update ()
 	{
-		if (FlagManager.Instance.flags [0] == true && FlagManager.Instance.flags [31] == false)
+		if (FlagManager.Instance.flags [0] == true && FlagManager.Instance.flags [32] == false)
 		{
 			if (FlagManager.Instance.flags [10] == false && messeagenum == 0)
 			{
@@ -118,7 +116,7 @@ public class Messeage : MonoBehaviour
 		}
 
 		//クリア(偽)(最終ステージ)
-		if (FlagManager.Instance.flags [31] == true && FlagManager.Instance.flags [32] == false)
+		if (FlagManager.Instance.flags [31] == false && FlagManager.Instance.flags [32] == true && FlagManager.Instance.flags [33] == false)
 		{
 			GameObject target = this.transform.Find ("Clear").gameObject;
 			GameObject continued = this.transform.Find ("Continue").gameObject;
@@ -129,7 +127,7 @@ public class Messeage : MonoBehaviour
 			retryd.SetActive(true);
 			cmesseage.SetActive (true);
 		}
-		else if (FlagManager.Instance.flags [31] == true && FlagManager.Instance.flags [32] == true)
+		else if (FlagManager.Instance.flags [31] == true && FlagManager.Instance.flags [32] == true && FlagManager.Instance.flags [33] == false)
 		{
 			GameObject target = this.transform.Find ("Clear").gameObject;
 			GameObject continued = this.transform.Find ("Continue").gameObject;

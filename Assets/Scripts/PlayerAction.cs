@@ -44,7 +44,7 @@ public class PlayerAction : MonoBehaviour
 			}
 		}
 
-		else if (FlagManager.Instance.flags [2] == false)
+		else if (FlagManager.Instance.flags [2] == false && FlagManager.Instance.flags [19] == false)
 		{
 			act.velocity = new Vector2 (xx, gg.gravity/100).normalized * 0.8f;
 		}
@@ -69,120 +69,105 @@ public class PlayerAction : MonoBehaviour
 			FlagManager.Instance.flags [4] = false;
 		}
 
+		if (FlagManager.Instance.flags [19] == true)
+		{
+			act.velocity = new Vector2 (0, 0).normalized;
+		}
+
 		// warp
 		if (FlagManager.Instance.flags [6] == true) // WarpにPlyerが触れた
 		{
-			if (FlagManager.Instance.flags [20] == true) { // WarpTriggerOut1に触れた
+			if (FlagManager.Instance.flags [18] == true && FlagManager.Instance.flags [20] == true) { // WarpTriggerOut1に触れた
 				if (FlagManager.Instance.flags [1] == true) { // 左向きに進んでるなら
 					transform.position = new Vector2 (Si.transform.position.x - 0.65f, Si.transform.position.y);
-					FlagManager.Instance.flags [6] = false;
 					FlagManager.Instance.flags [20] = false;
 				} else { // 右向きに進んでるなら
 					transform.position = new Vector2 (Si.transform.position.x + 0.65f, Si.transform.position.y);
-					FlagManager.Instance.flags [6] = false;
 					FlagManager.Instance.flags [20] = false;
 				}
 			}
-			if (FlagManager.Instance.flags [21] == true) { // WarpTriggerIn1に触れた
+			if (FlagManager.Instance.flags [18] == true && FlagManager.Instance.flags [21] == true) { // WarpTriggerIn1に触れた
 				if (FlagManager.Instance.flags [1] == true) { // 左向きに進んでるなら
 					transform.position = new Vector2 (Fo.transform.position.x - 0.65f, Fo.transform.position.y);
-					FlagManager.Instance.flags [6] = false;
 					FlagManager.Instance.flags [21] = false;
 				} else { // 右向きに進んでるなら
 					transform.position = new Vector2 (Fo.transform.position.x + 0.65f, Fo.transform.position.y);
-					FlagManager.Instance.flags [6] = false;
 					FlagManager.Instance.flags [21] = false;
 				}
 			}
 
-			if (FlagManager.Instance.flags [22] == true) { // WarpTriggerOut2に触れた
+			if (FlagManager.Instance.flags [18] == true && FlagManager.Instance.flags [22] == true) { // WarpTriggerOut2に触れた
 				if (FlagManager.Instance.flags [1] == true) { // 左向きに進んでるなら
 					transform.position = new Vector2 (Si2.transform.position.x - 0.65f, Si2.transform.position.y);
-					FlagManager.Instance.flags [6] = false;
 					FlagManager.Instance.flags [22] = false;
 				} else { // 右向きに進んでるなら
 					transform.position = new Vector2 (Si2.transform.position.x + 0.65f, Si2.transform.position.y);
-					FlagManager.Instance.flags [6] = false;
 					FlagManager.Instance.flags [22] = false;
 				}
 			}
-			if (FlagManager.Instance.flags [23] == true) { // WarpTriggerIn2に触れた
+			if (FlagManager.Instance.flags [18] == true && FlagManager.Instance.flags [23] == true) { // WarpTriggerIn2に触れた
 				if (FlagManager.Instance.flags [1] == true) { // 左向きに進んでるなら
 					transform.position = new Vector2 (Fo2.transform.position.x - 0.65f, Fo2.transform.position.y);
-					FlagManager.Instance.flags [6] = false;
 					FlagManager.Instance.flags [23] = false;
 				} else { // 右向きに進んでるなら
 					transform.position = new Vector2 (Fo2.transform.position.x + 0.65f, Fo2.transform.position.y);
-					FlagManager.Instance.flags [6] = false;
 					FlagManager.Instance.flags [23] = false;
 				}
 			}
 
-			if (FlagManager.Instance.flags [24] == true) { // WarpTriggerOut3に触れた
+			if (FlagManager.Instance.flags [18] == true && FlagManager.Instance.flags [24] == true) { // WarpTriggerOut3に触れた
 				if (FlagManager.Instance.flags [1] == true) { // 左向きに進んでるなら
 					transform.position = new Vector2 (Si3.transform.position.x + 0.65f, Si3.transform.position.y);
-					FlagManager.Instance.flags [6] = false;
 					FlagManager.Instance.flags [24] = false;
 				} else { // 右向きに進んでるなら
 					transform.position = new Vector2 (Si3.transform.position.x - 0.65f, Si3.transform.position.y);
-					FlagManager.Instance.flags [6] = false;
 					FlagManager.Instance.flags [24] = false;
 				}
 			}
-			if (FlagManager.Instance.flags [25] == true) { // WarpTriggerIn3に触れた
+			if (FlagManager.Instance.flags [18] == true && FlagManager.Instance.flags [25] == true) { // WarpTriggerIn3に触れた
 				if (FlagManager.Instance.flags [1] == true) { // 左向きに進んでるなら
-					transform.position = new Vector2 (Fo3.transform.position.x + 0.65f, Fo3.transform.position.y);
-					FlagManager.Instance.flags [6] = false;
+					transform.position = new Vector2 (Fo3.transform.position.x + 0.65f, Fo3.transform.position.y);				
 					FlagManager.Instance.flags [25] = false;
 				} else { // 右向きに進んでるなら
-					transform.position = new Vector2 (Fo3.transform.position.x - 0.65f, Fo3.transform.position.y);
-					FlagManager.Instance.flags [6] = false;
+					transform.position = new Vector2 (Fo3.transform.position.x - 0.65f, Fo3.transform.position.y);				
 					FlagManager.Instance.flags [25] = false;
 				}
 			}
 
-			if (FlagManager.Instance.flags [26] == true) { // WarpTriggerOut4に触れた
+			if (FlagManager.Instance.flags [18] == true && FlagManager.Instance.flags [26] == true) { // WarpTriggerOut4に触れた
 				if (FlagManager.Instance.flags [1] == true) { // 左向きに進んでるなら
 					transform.position = new Vector2 (Si4.transform.position.x - 0.65f, Si4.transform.position.y);
-					FlagManager.Instance.flags [6] = false;
 					FlagManager.Instance.flags [26] = false;
 				} else { // 右向きに進んでるなら
 					transform.position = new Vector2 (Si4.transform.position.x + 0.65f, Si4.transform.position.y);
-					FlagManager.Instance.flags [6] = false;
 					FlagManager.Instance.flags [26] = false;
 				}
 			}
-			if (FlagManager.Instance.flags [27] == true) { // WarpTriggerIn4に触れた
+			if (FlagManager.Instance.flags [18] == true && FlagManager.Instance.flags [27] == true) { // WarpTriggerIn4に触れた
 				if (FlagManager.Instance.flags [1] == true) { // 左向きに進んでるなら
 					transform.position = new Vector2 (Fo4.transform.position.x - 0.65f, Fo4.transform.position.y);
-					FlagManager.Instance.flags [6] = false;
 					FlagManager.Instance.flags [27] = false;
 				} else { // 右向きに進んでるなら
-					transform.position = new Vector2 (Fo4.transform.position.x + 0.65f, Fo4.transform.position.y);
-					FlagManager.Instance.flags [6] = false;
+					transform.position = new Vector2 (Fo4.transform.position.x + 0.65f, Fo4.transform.position.y);				
 					FlagManager.Instance.flags [27] = false;
 				}
 			}
 
-			if (FlagManager.Instance.flags [28] == true) { // WarpTriggerOut5に触れた
+			if (FlagManager.Instance.flags [18] == true && FlagManager.Instance.flags [28] == true) { // WarpTriggerOut5に触れた
 				if (FlagManager.Instance.flags [1] == true) { // 左向きに進んでるなら
 					transform.position = new Vector2 (Si5.transform.position.x - 0.65f, Si5.transform.position.y);
-					FlagManager.Instance.flags [6] = false;
 					FlagManager.Instance.flags [28] = false;
 				} else { // 右向きに進んでるなら
-					transform.position = new Vector2 (Si5.transform.position.x + 0.65f, Si5.transform.position.y);
-					FlagManager.Instance.flags [6] = false;
+					transform.position = new Vector2 (Si5.transform.position.x + 0.65f, Si5.transform.position.y);				
 					FlagManager.Instance.flags [28] = false;
 				}
 			}
-			if (FlagManager.Instance.flags [29] == true) { // WarpTriggerIn5に触れた
+			if (FlagManager.Instance.flags [18] == true && FlagManager.Instance.flags [29] == true) { // WarpTriggerIn5に触れた
 				if (FlagManager.Instance.flags [1] == true) { // 左向きに進んでるなら
-					transform.position = new Vector2 (Fo5.transform.position.x - 0.65f, Fo5.transform.position.y);
-					FlagManager.Instance.flags [6] = false;
+					transform.position = new Vector2 (Fo5.transform.position.x - 0.65f, Fo5.transform.position.y);				
 					FlagManager.Instance.flags [29] = false;
 				} else { // 右向きに進んでるなら
 					transform.position = new Vector2 (Fo5.transform.position.x + 0.65f, Fo5.transform.position.y);
-					FlagManager.Instance.flags [6] = false;
 					FlagManager.Instance.flags [29] = false;
 				}
 			}
@@ -293,17 +278,12 @@ public class PlayerAction : MonoBehaviour
 		else
 		{
 			FlagManager.Instance.flags [32] = true;
-			Invoke ("ClearTurn",2f);
+			FlagManager.Instance.flags [33] = true;
 		}
 	}
 
 	void DeathMesseage ()
 	{
 		FlagManager.Instance.flags [13] = true;
-	}
-
-	void ClearTurn ()
-	{
-		// クリア(偽)の処理を記述
 	}
 }
