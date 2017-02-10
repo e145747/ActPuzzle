@@ -203,8 +203,13 @@ public class PlayerAction : MonoBehaviour
 		{
 			FlagManager.Instance.flags [0] = true;
 			FlagManager.Instance.flags [2] = true;
+		}
 
-			// アニメーションの停止も追加すること
+		if (collider.gameObject.tag == "EndingTrigger")
+		{
+			FlagManager.Instance.flags [0] = true;
+			FlagManager.Instance.flags [2] = true;
+			FlagManager.Instance.flags [35] = true;
 		}
 
 		if (collider.gameObject.tag == "Killer")

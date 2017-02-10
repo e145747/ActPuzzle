@@ -26,6 +26,7 @@ TagManager:
   - Warp_In(4)
   - Warp_Out(5)
   - Warp_In(5)
+  - EndingTrigger
   layers:
   - Default
   - TransparentFX
