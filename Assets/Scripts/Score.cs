@@ -26,8 +26,8 @@ public class Score : MonoBehaviour
 
 			if (playingstage == 1)
 			{
-				// 最適解:4 ボーダー:14
-				int blockdata = 70 - (7 * (block.breakcount - 4));  // 70点分
+				// 最適解:2 ボーダー:12
+				int blockdata = 70 - (7 * (block.breakcount - 2));  // 70点分
 				int itemdata  = item.itemcount * 10;                // 30点分
 
 				check(ref blockdata);

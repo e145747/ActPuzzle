@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class FadeW : MonoBehaviour
+public class FadeWclear : MonoBehaviour
 {
 	public float speed = 0.01f;
 	float red, green, blue, alpha;
@@ -29,8 +29,8 @@ public class FadeW : MonoBehaviour
 			if (FlagManager.Instance.flags [33] == true)
 				StartCoroutine (Wait());
 
-			if (FlagManager.Instance.flags [34] == true)
-			alpha += speed;
+			if (FlagManager.Instance.flags [31] == true || FlagManager.Instance.flags [34] == true)
+				alpha += speed;
 
 			if (1 <= alpha)
 			{
