@@ -18,6 +18,7 @@ public class Flick : MonoBehaviour
 	public int score3;
 	public int score4;
 	public int score5;
+	public int score6;
 
 	void Start ()
 	{
@@ -30,6 +31,7 @@ public class Flick : MonoBehaviour
 		score3       = PlayerPrefs.GetInt("Score3",0);
 		score4       = PlayerPrefs.GetInt("Score4",0);
 		score5       = PlayerPrefs.GetInt("Score5",0);
+		score6       = PlayerPrefs.GetInt("Score6",0);
 
 		if (clear == 0)
 		{

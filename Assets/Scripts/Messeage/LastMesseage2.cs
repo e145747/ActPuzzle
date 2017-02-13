@@ -23,6 +23,17 @@ public class LastMesseage2 : MonoBehaviour
 		score3 = PlayerPrefs.GetInt("Score3",0);
 		score4 = PlayerPrefs.GetInt("Score4",0);
 		score5 = PlayerPrefs.GetInt("Score5",0);
+
+		if (1000 <= score1)
+			score1 = score1 - 1000;
+		if (1000 <= score2)
+			score2 = score2 - 1000;
+		if (1000 <= score3)
+			score3 = score3 - 1000;
+		if (1000 <= score4)
+			score4 = score4 - 1000;
+		if (1000 <= score5)
+			score5 = score5 - 1000;
 	}
 
 	void Update ()

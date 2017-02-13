@@ -10,6 +10,7 @@ public class PlayerAction : MonoBehaviour
 	public GameObject Fo,Si,Fo2,Si2,Fo3,Si3,Fo4,Si4,Fo5,Si5; // WarpObject用
 
 	private int xx = 1;
+	public float speed = 0.8f;
 
 	void Start ()
 	{
@@ -46,7 +47,7 @@ public class PlayerAction : MonoBehaviour
 
 		else if (FlagManager.Instance.flags [2] == false && FlagManager.Instance.flags [19] == false)
 		{
-			act.velocity = new Vector2 (xx, gg.gravity/100).normalized * 0.8f;
+			act.velocity = new Vector2 (xx, gg.gravity / 100).normalized * speed;
 		}
 
 		if (FlagManager.Instance.flags [4] == true)
@@ -258,6 +259,11 @@ public class PlayerAction : MonoBehaviour
 		if (collider.gameObject.tag == "Warp_In(5)")
 		{
 			FlagManager.Instance.flags [29] = true; // PlayerがWarp(2)inに触れたらフラグ21が立つ
+		}
+
+		if (collider.gameObject.tag == "SpeedDown")
+		{
+			speed = speed - 0.12f; // PlayerがWarp(2)inに触れたらフラグ21が立つ
 		}
 	}
 

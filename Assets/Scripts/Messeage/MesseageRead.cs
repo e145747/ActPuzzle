@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class MesseageRead : MonoBehaviour
 {
+	public AudioClip MenuSE;
+	public AudioClip MenuSE2;
+
 	GameObject messeage;
 	GameObject item;
 
@@ -38,6 +41,9 @@ public class MesseageRead : MonoBehaviour
 			move.messeagenum = move.messeagenum + 1;
 
 			gameObject.SetActive (false);
+
+			if (FlagManager.Instance.flags [35] == true)
+				SceneManager.LoadScene ("StageSelect");
 		}
 
 		else   //ゲーム終了の処理
@@ -281,12 +287,14 @@ public class MesseageRead : MonoBehaviour
 		{
 			if (FlagManager.Instance.flags [14] == false)
 			{
+				GetComponent<AudioSource> ().PlayOneShot (MenuSE);
 				FlagManager.Instance.flags [2] = true;
 				FlagManager.Instance.flags [14] = true;
 			}
 
 			else if (FlagManager.Instance.flags [14] == true)
 			{
+				GetComponent<AudioSource> ().PlayOneShot (MenuSE2);
 				FlagManager.Instance.flags [2] = false;
 				FlagManager.Instance.flags [14] = false;
 			}

@@ -6,6 +6,9 @@ public class Fade : MonoBehaviour
 {
 	public float speed = 0.035f;
 	float red, green, blue, alpha;
+	bool sound;
+
+	public AudioClip GateSE;
 
 	void Start ()
 	{
@@ -22,6 +25,12 @@ public class Fade : MonoBehaviour
 
 			FlagManager.Instance.flags [17] = true;
 			FlagManager.Instance.flags [19] = true;
+
+			if (sound == false)
+			{
+				GetComponent<AudioSource> ().PlayOneShot (GateSE);
+				sound = true;
+			}
 
 			if (FlagManager.Instance.flags [18] == false)
 			{
@@ -43,6 +52,7 @@ public class Fade : MonoBehaviour
 					FlagManager.Instance.flags [17] = false;
 					FlagManager.Instance.flags [18] = false;
 					FlagManager.Instance.flags [19] = false;
+					sound = false;
 				}
 			}
 		}

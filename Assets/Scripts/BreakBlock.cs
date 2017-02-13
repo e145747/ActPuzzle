@@ -4,7 +4,7 @@ using System.Collections;
 public class BreakBlock : MonoBehaviour
 {
 	public AudioClip BreakSE;
-	public AudioClip GravitySE;
+	public AudioClip MistSE;
 
 	GameObject breakcount;
 	Animator animet;
@@ -46,7 +46,7 @@ public class BreakBlock : MonoBehaviour
 					Animator anime = gameobject.GetComponent<Animator> ();
 					anime.Play ("Break", 0, 0.0f);
 
-					GetComponent<AudioSource> ().PlayOneShot (GravitySE);
+					GetComponent<AudioSource> ().PlayOneShot (BreakSE);
 
 					StartCoroutine (Breakblock(gameobject));
 
@@ -61,6 +61,8 @@ public class BreakBlock : MonoBehaviour
 
 					Animator anime = gameobject.GetComponent<Animator> ();
 					anime.Play ("Break", 0, 0.0f);
+
+					GetComponent<AudioSource> ().PlayOneShot (BreakSE);
 
 					StartCoroutine (Breakblock(gameobject));
 
@@ -87,6 +89,9 @@ public class BreakBlock : MonoBehaviour
 					Animator anime = gameobject.GetComponent<Animator> ();
 					anime.Play ("Break", 0, 0.0f);
 
+					GetComponent<AudioSource> ().PlayOneShot (BreakSE);
+					GetComponent<AudioSource> ().PlayOneShot (MistSE);
+
 					for (int i = 0; i < 5; i++)
 					{
 						StartCoroutine (Breakblock(gameobject));
@@ -94,24 +99,6 @@ public class BreakBlock : MonoBehaviour
 
 					Debug.Log ("BBarrier");
 				}
-
-				/*
-				if (collider.gameObject.tag == "Warp1")
-				{
-					// Warp Block の 色が変更されてるなら
-					if (FlagManager.Instance.flags [5] == true)
-					{
-						// Warp Blockが押されたか判断
-						FlagManager.Instance.flags [6] = true;
-						GameObject gameobject = collider.transform.gameObject;
-
-						Animator anime = gameobject.GetComponent<Animator> ();
-						anime.Play ("Break", 0, 0.0f);
-
-						StartCoroutine (Breakblock(gameobject));
-					}
-				}
-				*/
 
                 else
                 {

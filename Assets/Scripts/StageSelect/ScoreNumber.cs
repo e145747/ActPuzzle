@@ -24,7 +24,7 @@ public class ScoreNumber : MonoBehaviour
 		score3pt  = stagenum.score3;
 		score4pt  = stagenum.score4;
 		score5pt  = stagenum.score5;
-		score6pt  = stagenum.score1;  // あとで編集
+		score6pt  = stagenum.score6;  // あとで編集
 	}
 
 	void Update ()
@@ -86,6 +86,16 @@ public class ScoreNumber : MonoBehaviour
 				}
 
 				ScoreText.text = "SCORE : " + score5pt.ToString ();
+			}
+
+			else if (stagenum.playingstage == 6)
+			{
+				if (1000 < score6pt)
+				{
+					score6pt = score6pt - 1000;
+				}
+
+				ScoreText.text = "SCORE : " + score6pt.ToString ();
 			}
 
 			else
